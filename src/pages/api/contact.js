@@ -30,7 +30,8 @@ export const POST = async ({ request }) => {
         number: phoneNumber,
       },
       message,
-      hostname: "eces.pe",
+      hostname:
+        "venta-lamparas-proyectores.com" || "venta-lamparas-proyectores.site",
     },
   };
 
