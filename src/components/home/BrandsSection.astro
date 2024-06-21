@@ -1,0 +1,71 @@
+---
+const brands = [
+  {
+    name: "BenQ",
+    imageUrl: "./images/logo-benq.webp",
+  },
+  {
+    name: "Epson",
+    imageUrl: "./images/logo-epson.webp",
+  },
+  {
+    name: "inFocus",
+    imageUrl: "./images/logo-infocus.webp",
+  },
+  {
+    name: "LG",
+    imageUrl: "./images/logo-lg.webp",
+  },
+  {
+    name: "Optoma",
+    imageUrl: "./images/logo-optoma.webp",
+  },
+  {
+    name: "Sony",
+    imageUrl: "./images/logo-sony.webp",
+  },
+];
+---
+
+<div class="brands-wrapper">
+  <ul class="brands">
+    {
+      brands.map((brand, index) => (
+        <li key={index} class="brand">
+          <img src={brand.imageUrl} alt={brand.name} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  .brands-wrapper {
+    padding: 3em 1em 1em 1em;
+
+    .brands {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      max-width: 100%;
+      overflow-x: scroll;
+
+      .brand {
+        background: #fff;
+        border-radius: 1em;
+        padding: 0.2em 1em;
+        display: flex;
+        place-items: center;
+
+        img {
+          width: 8em;
+          margin: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+import ContactFormComponent from "../../components/contact/ContactFormComponent";
+---
+
+<script>
+  const elementItemVisibleForm = document.querySelector("#item-open-form");
+  const elementItemIconCloseForm = document.querySelector(
+    "#item-icon-close-form",
+  );
+  const elementContainerContactFx = document.querySelector(
+    "#container-form-contact-us-fixed",
+  );
+
+  window.location.pathname === "/contact" && elementItemVisibleForm.remove();
+
+  const toggleFormVisibility = () => {
+    elementContainerContactFx.classList.toggle("is_visible");
+    elementItemVisibleForm.classList.toggle("none");
+  };
+
+  elementContainerContactFx.classList.add("none");
+
+  elementItemVisibleForm.addEventListener("click", () =>
+    toggleFormVisibility(),
+  );
+
+  elementItemIconCloseForm.addEventListener("click", () =>
+    toggleFormVisibility(),
+  );
+</script>
+
+<div class="item-open-form" id="item-open-form">
+  <div>Contáctanos</div>
+</div>
+
+<div
+  class="form-contact-container form-contact-container-fixed none"
+  id="container-form-contact-us-fixed"
+>
+  <div class="item-icon-close-form" id="item-icon-close-form">X</div>
+  <div class="header-wrapper">
+    <ContactFormComponent client:load />
+  </div>
+</div>
+
+<style>
+  .item-open-form {
+    position: fixed;
+    width: auto;
+    height: auto;
+    background: #fff000;
+    padding: 8px 1rem;
+    color: #000;
+    cursor: pointer;
+    top: 40%;
+    left: -62px;
+    z-index: 4000;
+    font-weight: 800;
+    font-size: 1.3rem;
+    transform: rotate(-90deg);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .form-contact-container-fixed {
+    position: fixed;
+    left: 0;
+    top: 7%;
+    z-index: 999999;
+    background: #000;
+    padding: 1rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    display: none;
+    flex-direction: column;
+    width: 30rem;
+
+    box-sizing: border-box;
+  }
+
+  .form-contact-container-fixed.is_visible {
+    display: flex;
+  }
+
+  .form-contact-container-fixed .item-icon-close-form {
+    position: absolute;
+    top: -11px;
+    right: -13px;
+    color: #ffffff;
+    background: #fff000;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -1px 1px 5px #444;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .item-send-button .btn-send:hover {
+    background: #9d880c;
+    transition: all ease-in-out 0.3s;
+  }
+
+  @media (max-width: 700px) {
+    .form-contact-container-fixed {
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0;
+    }
+
+    .form-contact-container-fixed .header-wrapper {
+      text-align: center;
+    }
+
+    .form-contact-container-fixed .item-icon-close-form {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+</style>

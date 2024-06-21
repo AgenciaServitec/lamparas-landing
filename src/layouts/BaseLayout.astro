@@ -1,0 +1,94 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import { ButtonFloating, ButtonFloatingContact } from "../components";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Lamparas de proyectores" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="description"
+      content="Venta, reparacion y mantenimiento de lamparas de proyectores"
+    />
+    <meta
+      name="keywords"
+      content="Venta, reparacion, mantenimiento, lamparas"
+    />
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="general-wrapper">
+      <Header />
+      <div class="main">
+        <slot />
+      </div>
+      <ButtonFloatingContact />
+      <ButtonFloating />
+      <Footer />
+    </div>
+    <style is:global lang="scss">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: system-ui, sans-serif;
+        background: rgb(5, 5, 5);
+        color: #fff;
+      }
+
+      body {
+        margin: 0;
+        font-size: 16px;
+        overflow-x: hidden;
+      }
+
+      .general-wrapper {
+        max-width: 1530px;
+        margin: auto;
+        position: relative;
+        background: #13151a;
+      }
+
+      .main {
+        width: 100%;
+        height: auto;
+      }
+
+      .color {
+        &__primary {
+          color: #fff000;
+        }
+
+        &__secondary {
+          color: #0c0c0ccc;
+        }
+
+        &__white {
+          color: #fff;
+        }
+
+        &__black {
+          color: #000;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Lamparas de proyectores",
+  "short_name": "Lamparas de proyectores",
+  "icons": [
+    {
+      "src": "https://proyectoresservitec.com/favicon.webp",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait"
+}
