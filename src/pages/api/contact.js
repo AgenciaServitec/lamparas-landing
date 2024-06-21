@@ -30,7 +30,7 @@ export const POST = async ({ request }) => {
         number: phoneNumber,
       },
       message,
-      hostname: "lamparas-proyectores.netlify.app",
+      hostname: "venta-lamparas-proyectores.com",
     },
   };
 
