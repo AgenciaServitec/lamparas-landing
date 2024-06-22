@@ -4,26 +4,10 @@ import { IconFontAwesome } from "../components";
 import Drawer from "./Drawer";
 ---
 
-<script>
-  const headerElement = document.querySelector("#header-item");
-
-  const headerSticky = "header-sticky";
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 93) {
-      headerElement.classList.add(headerSticky);
-    } else {
-      headerElement.classList.remove(headerSticky);
-    }
-  });
-</script>
-
-<header id="header-item" class="header-absolute">
+<header id="header-item" class="header-relative">
   <div class="img-logo">
     <a href="/" rel="noreferrer"
-      ><img src="./images/logo.webp" alt="Lamparas de proyectores" /></a
+      ><img src="./images/logo.webp" alt="Logo lamparas de proyectores" /></a
     >
     <Drawer client:visible>
       <div class="item-menu-button">
@@ -52,9 +36,10 @@ import Drawer from "./Drawer";
 
 <style lang="scss">
   //MOBILE AND TABLET
-  .header-absolute {
+  .header-relative {
     width: 100%;
     height: auto;
+    padding: 0.7em;
 
     .img-logo {
       display: flex;
@@ -64,7 +49,7 @@ import Drawer from "./Drawer";
       img {
         width: 10em;
         height: auto;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
 
@@ -75,18 +60,13 @@ import Drawer from "./Drawer";
 
   //DESKTOP
   @media (min-width: 920px) {
-    .header-absolute {
-      position: absolute;
-      top: 0;
-      z-index: 700;
+    .header-relative {
       display: flex;
       justify-content: space-between;
       padding: 1em;
       width: 100%;
       max-width: 1530px;
       margin: auto;
-      background: linear-gradient(#000, rgba(0, 0, 0, 0.7));
-
       .img-logo {
         display: initial;
 
@@ -132,24 +112,6 @@ import Drawer from "./Drawer";
           }
         }
       }
-    }
-  }
-
-  .header-absolute.header-sticky {
-    position: fixed;
-    z-index: 700;
-    background-color: rgba(0, 0, 0, 0.87);
-    padding: 1em;
-    backdrop-filter: blur(10px);
-    animation: slideDown 0.35s ease-out;
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
     }
   }
 </style>
