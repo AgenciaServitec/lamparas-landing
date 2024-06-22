@@ -87,7 +87,6 @@ const ContactFormComponent = () => {
         className={loading ? "disabled" : ""}
         disabled={loading}
         style={{
-          minWidth: "300px",
           padding: "1em",
           border: "none",
           pointerEvents: `${loading ? "none" : ""}`,

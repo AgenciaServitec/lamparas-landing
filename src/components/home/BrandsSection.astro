@@ -30,8 +30,8 @@ const brands = [
 <div class="brands-wrapper">
   <ul class="brands">
     {
-      brands.map((brand, index) => (
-        <li key={index} class="brand">
+      brands.map((brand) => (
+        <li class="brand">
           <img src={brand.imageUrl} alt={brand.name} />
         </li>
       ))
