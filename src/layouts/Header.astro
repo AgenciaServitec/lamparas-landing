@@ -4,26 +4,10 @@ import { IconFontAwesome } from "../components";
 import Drawer from "./Drawer";
 ---
 
-<script>
-  const headerElement = document.querySelector("#header-item");
-
-  const headerSticky = "header-sticky";
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 93) {
-      headerElement.classList.add(headerSticky);
-    } else {
-      headerElement.classList.remove(headerSticky);
-    }
-  });
-</script>
-
 <header id="header-item" class="header-relative">
   <div class="img-logo">
     <a href="/" rel="noreferrer"
-      ><img src="./images/logo.webp" alt="Lamparas de proyectores" /></a
+      ><img src="./images/logo.webp" alt="Logo lamparas de proyectores" /></a
     >
     <Drawer client:visible>
       <div class="item-menu-button">
