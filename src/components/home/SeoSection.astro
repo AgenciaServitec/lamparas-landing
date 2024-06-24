@@ -1,0 +1,80 @@
+---
+
+---
+
+<main>
+  <h1>Venta de lámparas de alta calidad</h1>
+  <section class="seo-section">
+    <div class="seo-section-img">
+      <img src="./images/about-us-banner.webp" alt="" />
+    </div>
+    <div class="seo-section-text">
+      <p>
+        Ofrecemos lámparas de proyectores de alta calidad y larga duración.
+        Compatibles con varias marcas, con precios competitivos y envío rápido.
+        Mejore su proyección con nuestro soporte especializado.
+      </p>
+    </div>
+  </section>
+</main>
+
+<style lang="scss">
+  main {
+    width: 100%;
+    padding: 2em 5em;
+
+    @media (max-width: 576px) {
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      font-style: italic;
+      color: #fff000;
+      margin-bottom: 1rem;
+      @media (max-width: 576px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 1024px) {
+        font-size: 3rem;
+        text-align: center;
+      }
+    }
+
+    .seo-section {
+      width: 100%;
+      padding: 0 10rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+
+      .seo-section-img {
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 1em;
+          object-fit: cover;
+        }
+      }
+
+      .seo-section-text {
+        text-align: left;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .seo-section {
+        padding: 0 1rem;
+        grid-template-columns: 1fr;
+
+        .seo-section-text {
+          text-align: center;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+</style>
