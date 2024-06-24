@@ -1,11 +1,7 @@
 ---
 import { BaseLayout } from "../layouts";
-import {
-  CarouselProducts,
-  SectionWrapper,
-  SeoSection,
-  ContactSection
-} from "../components";
+import { CarouselProducts, SectionWrapper, SeoSection } from "../components";
+import ContactFormComponent from "../components/contact/ContactFormComponent";
 import BrandsSection from "../components/home/BrandsSection.astro";
 ---
 
@@ -23,7 +19,7 @@ import BrandsSection from "../components/home/BrandsSection.astro";
     </SectionWrapper>
 
     <SectionWrapper>
-      <ContactSection />
+      <ContactFormComponent client:load />
     </SectionWrapper>
 
     <SectionWrapper>
