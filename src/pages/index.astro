@@ -3,7 +3,8 @@ import { BaseLayout } from "../layouts";
 import {
   CarouselProducts,
   SectionWrapper,
-  AboutUsComponent,
+  SeoSection,
+  ContactSection
 } from "../components";
 import BrandsSection from "../components/home/BrandsSection.astro";
 ---
@@ -18,7 +19,11 @@ import BrandsSection from "../components/home/BrandsSection.astro";
     </div>
 
     <SectionWrapper>
-      <AboutUsComponent />
+      <SeoSection />
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <ContactSection />
     </SectionWrapper>
 
     <SectionWrapper>
