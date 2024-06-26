@@ -28,6 +28,21 @@ const { title = "Lamparas de proyectores" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="./favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16624505890"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-16624505890");
+    </script>
   </head>
   <body>
     <div class="general-wrapper">
