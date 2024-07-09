@@ -2,14 +2,13 @@
 import { BaseLayout } from "../layouts";
 import { CarouselProducts, SectionWrapper, SeoSection } from "../components";
 import ContactFormComponent from "../components/contact/ContactFormComponent";
-import BrandsSection from "../components/home/BrandsSection.astro";
 ---
 
 <BaseLayout>
   <main>
     <div class="banner-wrapper">
       <img
-        src="./images/principal-banner.webp"
+        src="/images/principal-banner.webp"
         alt="Banner lamparas de proyectores"
       />
     </div>
@@ -26,9 +25,6 @@ import BrandsSection from "../components/home/BrandsSection.astro";
       <CarouselProducts />
     </SectionWrapper>
 
-    <SectionWrapper>
-      <BrandsSection />
-    </SectionWrapper>
   </main>
 
   <style lang="scss">
