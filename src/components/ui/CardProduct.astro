@@ -4,6 +4,7 @@ const { productName, imagePath } = Astro.props;
 
 <article class="product">
   <a href="/contact">
+    <span class="stock">Stock: 50</span>
     <div class="product__img">
       <img src={imagePath} alt={productName} />
     </div>
@@ -16,7 +17,16 @@ const { productName, imagePath } = Astro.props;
 <style lang="scss">
   .product {
     width: 100%;
-    text-transform: uppercase;
+    .stock{
+      position: absolute;
+      background-color: #fff000;
+      display: flex;
+      padding: .625rem;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      color: black;
+      font-weight: bold;
+    }
     a {
       display: grid;
       grid-template-rows: 1fr 5em;
