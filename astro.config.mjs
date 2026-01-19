@@ -1,4 +1,4 @@
-import {defineConfig} from "astro/config";
+import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import netlify from "@astrojs/netlify/functions";
 
@@ -6,5 +6,8 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
     integrations: [react()],
     output: "server",
-    adapter: netlify()
+    adapter: netlify(),
+    redirects: {
+        "https://venta-lamparas-proyectores.com/": "https://venta-lampara-proyector.site",
+    },
 });
