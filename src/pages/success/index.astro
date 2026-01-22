@@ -1,12 +1,12 @@
 ---
-import { BaseLayout } from "../../layouts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Mensaje exitoso">
   <main>
     <section class="success">
       <div class="success__img">
-        <img src="../../../images/image-contact.webp" alt="Contacto exitoso" />
+        <img src="" alt="Contacto exitoso" />
       </div>
       <div class="success__text">
         <h2 class="success__text-title">Mensaje enviado exitosamente</h2>
@@ -20,77 +20,3 @@ import { BaseLayout } from "../../layouts";
     </div>
   </main>
 </BaseLayout>
-
-<style lang="scss">
-  main {
-    width: 100%;
-    padding: 2em;
-  }
-
-  .success {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0 7rem;
-    @media (max-width: 1200px) {
-      padding: 0 2rem;
-    }
-
-    &__img {
-      max-width: 430px;
-      height: auto;
-
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 15px;
-      }
-    }
-
-    &__text {
-      width: 35%;
-
-      &-title {
-        font-size: 2.7em;
-        text-transform: uppercase;
-        font-style: italic;
-        color: #fff000;
-        margin-bottom: 0.625rem;
-        @media (max-width: 576px) {
-          font-size: 1.5rem;
-        }
-      }
-
-      &-description {
-        font-size: 2em;
-        text-align: left;
-      }
-
-      @media (max-width: 1024px) {
-        width: 100%;
-      }
-    }
-  }
-
-  .success-btn {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    a {
-      margin: 0 auto;
-      font-size: 1.2em;
-      text-transform: upperCase;
-      text-decoration: auto;
-      font-style: italic;
-      background-color: #fff000;
-      color: #000;
-      padding: 1em;
-      border-radius: 7em;
-      border: none;
-      cursor: pointer;
-    }
-  }
-</style>

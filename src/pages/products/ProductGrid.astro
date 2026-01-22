@@ -1,0 +1,55 @@
+---
+import ProductCard from "./ProductCard.astro";
+
+type Product = {
+  id: string;
+  slug: string;
+  name: string;
+  brand: string;
+  code: string;
+  imagePath: string;
+  price: number;
+  stock: number;
+};
+
+type Props = {
+  title?: string;
+  subtitle?: string;
+  products: Product[];
+};
+
+const { title, subtitle, products } = Astro.props;
+---
+
+<section class="w-full mt-16">
+  {(title || subtitle) && (
+    <div class="flex items-end justify-between gap-4 mb-6">
+      <div>
+        {title && <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground">{title}</h2>}
+        {subtitle && <p class="text-muted mt-1">{subtitle}</p>}
+      </div>
+
+      <a
+        href="/products"
+        class="hidden sm:inline-flex text-sm text-muted hover:text-foreground transition"
+      >
+        Ver todo →
+      </a>
+    </div>
+  )}
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+    {products.map((p) => (
+      <ProductCard product={{
+        id: p.id,
+        slug: p.slug,
+        code: p.code ?? p.name,
+        brand: p.brand ?? "Genérico",
+        name: p.name,
+        price: p.price ?? 0,
+        stock: p.stock ?? 0,
+        imagePath: p.imagePath,
+      }} />
+    ))}
+  </div>
+</section>

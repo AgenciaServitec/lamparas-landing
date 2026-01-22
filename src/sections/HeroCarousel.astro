@@ -1,0 +1,70 @@
+---
+const hero = {
+  title: "La lámpara correcta. Sin complicaciones",
+  subtitle:
+    "Envíanos el modelo o una foto de la etiqueta y te ayudamos a elegir antes de comprar.",
+  primaryCta: { label: "Consultar por WhatsApp", href: "https://wa.me/51930345270" },
+  secondaryCta: { label: "Ver lámparas", href: "/products" },
+};
+---
+
+<section class="w-full mt-5">
+  <div class="relative overflow-hidden rounded-2xl
+              border border-black/10
+              bg-[#F9F9F6]
+              shadow-[0_20px_80px_rgba(0,0,0,0.12)]">
+
+    <div class="absolute inset-0 bg-gradient-to-br
+                from-[#FAFAF8]
+                via-[#F2F2EE]
+                to-[#FAFAF8]"></div>
+
+    <div class="absolute -top-32 -right-32 w-[520px] h-[520px]
+                rounded-full bg-primary/15 blur-3xl"></div>
+
+    <div class="relative min-h-[400px] flex items-center">
+      <div class="w-full max-w-6xl mx-auto px-6 py-8 text-center">
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl
+                   font-extrabold text-black leading-tight">
+          {hero.title}
+        </h1>
+
+        <p class="mt-4 text-base sm:text-lg
+                  text-black/65 max-w-2xl mx-auto">
+          {hero.subtitle}
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={hero.primaryCta.href}
+            class="rounded-xl bg-primary text-black font-semibold
+                   px-6 py-3 hover:bg-primary-hover transition" target="_blank">
+            {hero.primaryCta.label}
+          </a>
+
+          <a
+            href={hero.secondaryCta.href}
+            class="rounded-xl border border-black/15 bg-white
+                   text-black font-semibold px-6 py-3
+                   hover:bg-black/5 transition">
+            {hero.secondaryCta.label}
+          </a>
+        </div>
+
+        <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs text-black/60">
+          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+            Garantía 3 meses
+          </span>
+          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+            Boleta / Factura
+          </span>
+          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+            Envíos a todo el Perú
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

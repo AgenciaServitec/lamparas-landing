@@ -1,13 +1,14 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import netlify from "@astrojs/netlify/functions";
+import netlify from "@astrojs/netlify";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [react()],
-    output: "server",
-    adapter: netlify(),
-    redirects: {
-        "https://venta-lamparas-proyectores.com/": "https://venta-lampara-proyector.site",
-    },
+  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  output: "server",
+  adapter: netlify(),
 });

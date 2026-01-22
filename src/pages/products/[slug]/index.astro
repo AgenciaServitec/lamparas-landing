@@ -1,0 +1,278 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { products } from "../../../data-list/";
+import ContentWidth from "../../../components/ui/ContentWidth.astro";
+
+export async function getStaticPaths() {
+  return products
+    .filter((p) => p?.slug)
+    .map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+
+const product = products.find((p) => p.slug === slug);
+
+if (!product) {
+  return new Response("Producto no encontrado", { status: 404 });
+}
+
+const images = (product?.images?.length ? product.images : [product?.imagePath]).filter(Boolean);
+const mainSrc = images[0] ?? "";
+
+const phone = "51930345270";
+const siteUrl = "https://venta-lampara-proyector.site";
+const productUrl = `${siteUrl}/products/${product.slug}`;
+
+const waText = encodeURIComponent(
+  `Hola, quiero consultar por esta lámpara:\n\n` +
+  `• ${product.title}\n` +
+  `• SKU: ${product.sku ?? product.code}\n` +
+  `• Precio referencial: S/ ${product.price}\n` +
+  `• Link: ${productUrl}\n\n` +
+  `¿Me confirmas compatibilidad y stock?`
+);
+
+const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
+---
+
+<BaseLayout>
+  <ContentWidth>
+    <div class="py-8">
+      <nav class="text-sm text-muted mb-6">
+        <ol class="flex flex-wrap gap-2">
+          <li><a class="hover:text-foreground" href="/">Inicio</a></li>
+          <li class="opacity-60">/</li>
+          <li><a class="hover:text-foreground" href="/productos">Productos</a></li>
+          <li class="opacity-60">/</li>
+          <li class="text-foreground">{product?.code}</li>
+        </ol>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section class="lg:col-span-7">
+          <div class="bg-surface/60 rounded-2xl border border-white/10 p-3">
+            <div class="bg-white rounded-xl overflow-hidden">
+              <img
+                id="mainImage"
+                src={mainSrc}
+                alt={product?.title}
+                class="w-full h-[22rem] sm:h-[28rem] lg:h-[32rem] object-contain"
+                loading="eager"
+              />
+            </div>
+
+            <div class="mt-3 grid grid-cols-4 gap-3">
+              {images.map((src, idx) => (
+                <button
+                  type="button"
+                  class={`thumb group bg-white rounded-xl overflow-hidden border transition ${
+                    idx === 0 ? "border-primary" : "border-transparent hover:border-white/20"
+                  }`}
+                  data-src={src}
+                  aria-label={`Ver imagen ${idx + 1}`}
+                >
+                  <img
+                    src={src}
+                    alt={`${product?.title} - vista ${idx + 1}`}
+                    class="w-full h-20 object-contain group-hover:scale-[1.02] transition"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-6 bg-surface/60 rounded-2xl border border-white/10">
+            <div class="flex gap-6 px-5 pt-4 border-b border-white/10 text-sm">
+              <button class="tab-btn text-foreground border-b-2 border-primary pb-3" data-tab="desc">Descripción</button>
+              <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="compat">Compatibilidad</button>
+              <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="garantia">Garantía</button>
+              <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="envio">Envío</button>
+            </div>
+
+            <div class="p-5">
+              <div class="tab-panel" data-panel="desc">
+                <p class="leading-7 text-muted">
+                  Lámpara de repuesto compatible, ideal para recuperar el brillo y la nitidez de tu proyector.
+                  Si nos indicas el modelo exacto, confirmamos compatibilidad antes de la compra.
+                </p>
+                <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted">
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Alta duración</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Asesoría técnica</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Producto probado</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Boleta / factura</li>
+                </ul>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="compat">
+                <p class="leading-7 text-muted">
+                  Modelos comunes compatibles (referencial):
+                </p>
+
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {(product?.compatibles ?? []).length ? (
+                    product?.compatibles.map((m) => (
+                      <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                        {m}
+                      </span>
+                    ))
+                  ) : (
+                    <span class="text-sm text-muted">Consúltanos por WhatsApp con tu modelo exacto.</span>
+                  )}
+                </div>
+
+                <p class="mt-4 text-sm text-muted">
+                  *La compatibilidad final se confirma con el modelo exacto del proyector.
+                </p>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="garantia">
+                <p class="leading-7 text-muted">
+                  {product?.warranty}. Recomendamos instalación con técnico o siguiendo guía para evitar daños por manipulación.
+                </p>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="envio">
+                <p class="leading-7 text-muted">
+                  Envíos a Lima y provincias. También puedes coordinar recojo. Te confirmamos costo y tiempos por WhatsApp.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="lg:col-span-5">
+          <div class="lg:sticky lg:top-6 bg-surface/60 rounded-2xl border border-white/10 p-5">
+            <div class="flex items-center gap-3">
+              <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                {product?.brand}
+              </span>
+              <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                SKU: {product?.sku ?? product?.code}
+              </span>
+              <span class={`ml-auto text-xs px-3 py-1 rounded-full border ${
+                product?.stock > 0 ? "bg-success/15 text-success border-success/20" : "bg-white/10 text-muted border-white/10"
+              }`}>
+                {product?.stock > 0 ? "En stock" : "Agotado"}
+              </span>
+            </div>
+
+            <h1 class="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              {product?.title}
+            </h1>
+
+            <div class="mt-3 flex items-end gap-3">
+              <div class="text-3xl font-extrabold text-foreground">
+                S/ {product?.price}
+              </div>
+              <div class="text-sm text-muted pb-1">
+                Precio referencial
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                <div class="text-xs text-muted">Compatibilidad</div>
+                <div class="mt-1 text-sm text-foreground font-semibold">Por modelo</div>
+                <div class="mt-2 text-xs text-muted">Indícanos tu modelo exacto.</div>
+              </div>
+
+              <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                <div class="text-xs text-muted">Garantía</div>
+                <div class="mt-1 text-sm text-foreground font-semibold">{product?.warranty}</div>
+                <div class="mt-2 text-xs text-muted">Soporte post-venta.</div>
+              </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 gap-3">
+              <button
+                id="addToCartBtn"
+                type="button"
+                class="w-full rounded-xl bg-primary text-black font-semibold py-3 hover:bg-primary-hover transition"
+                data-add-to-cart
+                data-product={JSON.stringify({
+                  id: product.id,
+                  slug: product.slug,
+                  code: product.code,
+                  brand: product.brand,
+                  name: product.title,
+                  price: product.price,
+                  imagePath: product.imagePath,
+                })}
+              >
+                <span>Agregar al carrito</span>
+              </button>
+
+              <a
+                id="whatsappBtn"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener"
+                class="w-full rounded-xl bg-[#22c55e] text-black font-semibold py-3 text-center hover:opacity-95 transition"
+              >
+                <span>Consultar por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </ContentWidth>
+
+  <script is:inline>
+    (() => {
+      const STORAGE_KEY = "servitec_cart_v1";
+
+      function safeParse(raw) {
+        try { return JSON.parse(raw); } catch { return null; }
+      }
+
+      function getCart() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const items = raw ? safeParse(raw) : [];
+        return Array.isArray(items) ? items : [];
+      }
+
+      function setCart(items) {
+        const normalized = Array.isArray(items) ? items : [];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+        window.dispatchEvent(new CustomEvent("cart:updated", { detail: normalized }));
+      }
+
+      function addToCart(item) {
+        const cart = getCart();
+        const existing = cart.find((x) => x?.id === item.id);
+
+        if (existing) existing.qty = (Number(existing.qty) || 0) + 1;
+        else cart.push({ ...item, qty: 1 });
+
+        setCart(cart);
+      }
+
+      const btn = document.getElementById("addToCartBtn");
+      if (!btn) return;
+
+      btn.addEventListener("click", () => {
+        const raw = btn.getAttribute("data-product");
+        const item = raw ? safeParse(raw) : null;
+
+        if (!item || !item.id) return;
+
+        addToCart(item);
+
+        const prev = btn.textContent;
+        btn.textContent = "Agregado ✓";
+        btn.setAttribute("disabled", "true");
+
+        setTimeout(() => {
+          btn.textContent = prev || "Agregar al carrito";
+          btn.removeAttribute("disabled");
+        }, 1200);
+      });
+    })();
+  </script>
+
+</BaseLayout>
