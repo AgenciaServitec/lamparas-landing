@@ -1,13 +1,16 @@
 ---
 import ContentWidth from "../components/ui/ContentWidth.astro";
+
 const nav = [
   { label: "Productos", href: "/products" },
   { label: "Nosotros", href: "/about" },
   { label: "Contacto", href: "/contact" },
 ];
 
-const whatsappNumber = "51941801827";
-const whatsappText = encodeURIComponent("Hola, quiero asesoría para una lámpara de proyector. ¿Me ayudas?");
+const whatsappNumber = "51930345270";
+const whatsappText = encodeURIComponent(
+  "Hola, quiero asesoría para una lámpara de proyector. ¿Me ayudas?"
+);
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 ---
 
@@ -35,9 +38,11 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
           <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
             <path d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"/>
           </svg>
-          <span class="absolute -top-2 -right-2 text-xs bg-primary text-black rounded-full px-2 py-0.5 font-bold">
-            0
-          </span>
+
+          <span
+            id="cartBadge"
+            class="absolute -top-2 -right-2 text-xs bg-primary text-black rounded-full px-2 py-0.5 font-bold hidden"
+          >0</span>
         </a>
 
         <a
@@ -57,93 +62,162 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
           aria-label="Menú"
           data-mobile-menu-btn
         >
-          ☰
-        </button>
-      </div>
-    </div>
-
-    <div class="md:hidden hidden pb-4" data-mobile-menu>
-      <div class="pt-3 flex flex-col gap-2">
-        {nav.map((item) => (
-          <a class="rounded-xl px-3 py-2 text-muted hover:text-foreground hover:bg-surface/40 transition" href={item.href}>
-            {item.label}
-          </a>
-        ))}
-        <a
-          href={whatsappLink}
-          target="_blank"
-          class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-black font-semibold px-4 py-2 hover:bg-primary-hover transition"
-        >
           <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-            <path d="M476.9 161.1C435 119.1 379.2 96 319.9 96C197.5 96 97.9 195.6 97.9 318C97.9 357.1 108.1 395.3 127.5 429L96 544L213.7 513.1C246.1 530.8 282.6 540.1 319.8 540.1L319.9 540.1C442.2 540.1 544 440.5 544 318.1C544 258.8 518.8 203.1 476.9 161.1zM319.9 502.7C286.7 502.7 254.2 493.8 225.9 477L219.2 473L149.4 491.3L168 423.2L163.6 416.2C145.1 386.8 135.4 352.9 135.4 318C135.4 216.3 218.2 133.5 320 133.5C369.3 133.5 415.6 152.7 450.4 187.6C485.2 222.5 506.6 268.8 506.5 318.1C506.5 419.9 421.6 502.7 319.9 502.7zM421.1 364.5C415.6 361.7 388.3 348.3 383.2 346.5C378.1 344.6 374.4 343.7 370.7 349.3C367 354.9 356.4 367.3 353.1 371.1C349.9 374.8 346.6 375.3 341.1 372.5C308.5 356.2 287.1 343.4 265.6 306.5C259.9 296.7 271.3 297.4 281.9 276.2C283.7 272.5 282.8 269.3 281.4 266.5C280 263.7 268.9 236.4 264.3 225.3C259.8 214.5 255.2 216 251.8 215.8C248.6 215.6 244.9 215.6 241.2 215.6C237.5 215.6 231.5 217 226.4 222.5C221.3 228.1 207 241.5 207 268.8C207 296.1 226.9 322.5 229.6 326.2C232.4 329.9 268.7 385.9 324.4 410C359.6 425.2 373.4 426.5 391 423.9C401.7 422.3 423.8 410.5 428.4 397.5C433 384.5 433 373.4 431.6 371.1C430.3 368.6 426.6 367.2 421.1 364.5z"/>
+            <path d="M64 160C64 142.3 78.3 128 96 128L480 128C497.7 128 512 142.3 512 160C512 177.7 497.7 192 480 192L96 192C78.3 192 64 177.7 64 160zM128 320C128 302.3 142.3 288 160 288L544 288C561.7 288 576 302.3 576 320C576 337.7 561.7 352 544 352L160 352C142.3 352 128 337.7 128 320zM512 480C512 497.7 497.7 512 480 512L96 512C78.3 512 64 497.7 64 480C64 462.3 78.3 448 96 448L480 448C497.7 448 512 462.3 512 480z"/>
           </svg>
-          <span>WhatsApp</span>
-        </a>
+        </button>
       </div>
     </div>
   </ContentWidth>
 
+  <div class="md:hidden">
+    <div class="fixed inset-0 z-[9999] hidden" data-mobile-menu aria-hidden="true">
+      <div class="absolute inset-0 bg-black/80" data-mobile-menu-overlay></div>
+
+      <div
+        class="absolute inset-y-0 right-0 w-screen h-screen bg-background text-foreground translate-x-full
+               transition-transform duration-300 ease-out will-change-transform"
+        data-mobile-menu-panel
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú"
+      >
+        <div class="h-16 px-5 flex items-center justify-end border-b border-white/10 bg-background/95 backdrop-blur">
+          <button
+            class="rounded-xl border border-white/10 bg-surface/50 p-2 hover:bg-surface/70 transition"
+            aria-label="Cerrar menú"
+            type="button"
+            data-mobile-menu-close
+          >
+            <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+              <path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-5 flex flex-col gap-3">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="rounded-2xl px-4 py-4 text-lg font-semibold bg-surface/30 hover:bg-surface/60 transition"
+            >
+              {item.label}
+            </a>
+          ))}
+
+          <a
+            href={whatsappLink}
+            target="_blank"
+            class="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-primary text-black font-semibold px-4 py-4 hover:bg-primary-hover transition"
+          >
+            WhatsApp
+          </a>
+
+          <a
+            href="/cart"
+            class="w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-surface/30 text-foreground font-semibold px-4 py-4 hover:bg-surface/60 transition"
+          >
+            Ver carrito
+          </a>
+
+          <p class="mt-4 text-xs text-muted leading-6">
+            Horario: Lunes a viernes 09:00 – 19:00
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script is:inline>
-    // ===== Mobile menu =====
-    const btn = document.querySelector("[data-mobile-menu-btn]");
-    const menu = document.querySelector("[data-mobile-menu]");
-    btn?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+    if (!window.__SERVITEC_HEADER_ALL__) {
+      window.__SERVITEC_HEADER_ALL__ = true;
 
-    // ===== Cart badge =====
-    const STORAGE_KEY = "servitec_cart_v1";
-    const badge = document.getElementById("cartBadge");
+      const openBtn = document.querySelector("[data-mobile-menu-btn]");
+      const menu = document.querySelector("[data-mobile-menu]");
+      const panel = document.querySelector("[data-mobile-menu-panel]");
+      const closeBtn = document.querySelector("[data-mobile-menu-close]");
+      const overlay = document.querySelector("[data-mobile-menu-overlay]");
 
-    function getCart() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch {
-        return [];
-      }
-    }
-
-    function countItems(cart) {
-      // si guardas qty en cada item (como ya hiciste): suma qty
-      return (cart || []).reduce((acc, item) => acc + (Number(item.qty) || 0), 0);
-    }
-
-    function renderBadge() {
-      if (!badge) return;
-      const cart = getCart();
-      const total = countItems(cart);
-
-      if (total <= 0) {
-        badge.classList.add("hidden");
-        badge.textContent = "0";
-        return;
+      function openMenu() {
+        if (!menu || !panel) return;
+        menu.classList.remove("hidden");
+        menu.setAttribute("aria-hidden", "false");
+        requestAnimationFrame(() => panel.classList.remove("translate-x-full"));
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
       }
 
-      badge.classList.remove("hidden");
-      badge.textContent = total > 99 ? "99+" : String(total);
-    }
+      function closeMenu() {
+        if (!menu || !panel) return;
+        panel.classList.add("translate-x-full");
+        menu.setAttribute("aria-hidden", "true");
+        window.setTimeout(() => {
+          menu.classList.add("hidden");
+          document.documentElement.style.overflow = "";
+          document.body.style.overflow = "";
+        }, 300);
+      }
 
-    // Render inicial
-    renderBadge();
+      openBtn?.addEventListener("click", openMenu);
+      closeBtn?.addEventListener("click", closeMenu);
+      overlay?.addEventListener("click", closeMenu);
 
-    // Re-render cuando se actualice el carrito desde cualquier página
-    window.addEventListener("cart:updated", (e) => {
-      const cart = e?.detail ?? getCart();
-      const total = countItems(cart);
-      if (!badge) return;
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
 
-      if (total <= 0) {
-        badge.classList.add("hidden");
-        badge.textContent = "0";
-      } else {
+      menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+
+      const STORAGE_KEY = "servitec_cart_v1";
+
+      function getCart() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          const items = raw ? JSON.parse(raw) : [];
+          return Array.isArray(items) ? items : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function countItems(cart) {
+        return (cart || []).reduce((acc, item) => acc + (Number(item?.qty) || 0), 0);
+      }
+
+      function renderBadge(cartOverride) {
+        const badge = document.getElementById("cartBadge");
+        if (!badge) return;
+
+        const cart = cartOverride ?? getCart();
+        const total = countItems(cart);
+
+        if (total <= 0) {
+          badge.classList.add("hidden");
+          badge.textContent = "0";
+          return;
+        }
+
         badge.classList.remove("hidden");
         badge.textContent = total > 99 ? "99+" : String(total);
       }
-    });
 
-    // Si el usuario actualiza el localStorage desde otra pestaña
-    window.addEventListener("storage", (e) => {
-      if (e.key === STORAGE_KEY) renderBadge();
-    });
+      const initBadge = () => renderBadge();
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initBadge);
+      } else {
+        initBadge();
+      }
+
+      window.addEventListener("cart:updated", (e) => {
+        renderBadge(e?.detail);
+      });
+
+      window.addEventListener("storage", (e) => {
+        if (e.key === STORAGE_KEY) renderBadge();
+      });
+
+      document.addEventListener("astro:page-load", () => renderBadge());
+      document.addEventListener("astro:after-swap", () => renderBadge());
+    }
   </script>
-
 </header>

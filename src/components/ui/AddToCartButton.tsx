@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { addToCart } from "./cartStore";
+import { addToCart } from "../../utils/cartStore.ts";
 
 type Product = {
   id: string;
