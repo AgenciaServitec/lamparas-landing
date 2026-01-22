@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWidth from "../../components/ui/ContentWidth.astro";
+import LegalSections from "../../sections/LegalSections.astro";
+import { termsAndConditions } from "../../data-list";
+---
+
+<BaseLayout>
+  <ContentWidth>
+    <div class="py-10">
+      <header class="mb-8">
+        <p class="text-sm text-muted">Servitec Perú</p>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-foreground">
+          Términos y Condiciones
+        </h1>
+        <p class="mt-3 text-muted max-w-2xl">
+          Aquí explicamos qué datos recopilamos, por qué los usamos y cómo puedes ejercer control sobre tu información.
+        </p>
+      </header>
+
+      <LegalSections sections={termsAndConditions} updatedAt="2026-01-21" />
+    </div>
+  </ContentWidth>
+</BaseLayout>

@@ -1,72 +1,36 @@
 ---
-import { BaseLayout } from "../layouts";
-import { CarouselProducts, SectionWrapper, SeoSection } from "../components";
-import ContactFormComponent from "../components/contact/ContactFormComponent";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductGrid from "./products/ProductGrid.astro";
+import { products } from "../data-list";
+import HeroCarousel from "../sections/HeroCarousel.astro";
+import ContentWidth from "../components/ui/ContentWidth.astro";
+import CTA from "../sections/CTA.astro";
+import PurchaseExplanation from "../sections/PurchaseExplanation.astro";
+import Brands from "../sections/Brands.astro";
 ---
 
 <BaseLayout>
-  <main>
-    <div class="banner-wrapper">
-      <img
-        src="/images/banner.webp"
-        alt="Banner lamparas de proyectores"
-      />
-    </div>
+  <ContentWidth>
+    <HeroCarousel/>
+  </ContentWidth>
 
-    <SectionWrapper>
-      <SeoSection />
-    </SectionWrapper>
+  <ContentWidth>
+    <ProductGrid
+      title="Lámparas para proyectores"
+      subtitle="Confirmamos compatibilidad antes de cerrar la compra."
+      products={products.slice(0, 8)}
+    />
+  </ContentWidth>
 
-    <SectionWrapper>
-      <ContactFormComponent client:load />
-    </SectionWrapper>
+  <ContentWidth>
+    <Brands/>
+  </ContentWidth>
 
-    <SectionWrapper>
-      <CarouselProducts />
-    </SectionWrapper>
+  <ContentWidth>
+    <PurchaseExplanation/>
+  </ContentWidth>
 
-  </main>
-
-  <style lang="scss">
-    //MOBILE AND TABLET
-    main {
-      .banner-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        height: 100%;
-
-        img {
-          width: 100%;
-          height: auto;
-          z-index: 100;
-        }
-
-        .wrapper-content {
-          width: 90%;
-          margin: auto;
-          color: #fff;
-          text-transform: uppercase;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          z-index: 200;
-          @media (min-width: 920px) {
-            width: 60%;
-          }
-
-          .quote-wrapper {
-            padding: 2em 0 0 0;
-
-            a {
-              text-decoration: auto;
-            }
-          }
-        }
-      }
-    }
-  </style>
+  <ContentWidth>
+    <CTA/>
+  </ContentWidth>
 </BaseLayout>

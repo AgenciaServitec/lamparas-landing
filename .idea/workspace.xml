@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="files old">
+      <change afterPath="$PROJECT_DIR$/src/sections/HeroCarousel.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/data-store.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/data-store.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/phone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact/ContactFormComponent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact/ContactFormComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/AboutUs.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/CarouselProducts.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/ContactSection.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/LegalSections.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/LegalSections.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/PrivacyPolicies.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/SeoSection.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/AddToCartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/AddToCartButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Button.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/ButtonFloating.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/ButtonFloatingContact.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/ButtonJsx.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/CardProduct.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Divider.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Form.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/HeroCarousel.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/IconFontAwesome.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/IconItem.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Input.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/SectionWrapper.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Textarea.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Title.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/cartStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cartStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useVisibleDrawer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/BaseLayout.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BaseLayout.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Drawer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cart/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cart/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/contact/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/product/[slug].astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/success/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/success/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/CTA.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/CTA.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript JSX File" />
+        <option value="Astro Component" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AngelDev2001&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AgenciaServitec/lamparas-landing.git",
+    "accountId": "e345968d-7d21-452d-8db2-36d5945ef979"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="38LhjJXX74Har5qM8Z4Fn07OVKB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "update__project",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Angel/WebstormProjects/lamparas-landing/public/images/brands",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images\brands" />
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\src\components\ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\src\sections" />
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\src\utils" />
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="" />
+      <created>1768584892138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1768584892138</updated>
+      <workItem from="1768584893435" duration="2811000" />
+      <workItem from="1768601548027" duration="38000" />
+      <workItem from="1768601740254" duration="583000" />
+      <workItem from="1768859160739" duration="4436000" />
+      <workItem from="1769011734408" duration="3622000" />
+      <workItem from="1769015404059" duration="24900000" />
+      <workItem from="1769099305397" duration="9176000" />
+    </task>
+    <task id="LOCAL-00001" summary="updated banner image">
+      <option name="closed" value="true" />
+      <created>1768602221897</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1768602221897</updated>
+    </task>
+    <task id="LOCAL-00002" summary="removed google tag manager script">
+      <option name="closed" value="true" />
+      <created>1768859234716</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768859234716</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated whatsapp number">
+      <option name="closed" value="true" />
+      <created>1768861040748</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1768861040748</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added redirect to venta-lampara-proyector.site">
+      <option name="closed" value="true" />
+      <created>1768861880074</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1768861880074</updated>
+    </task>
+    <task id="LOCAL-00005" summary="upgrade astro and add plugin astrojs/tailwindcss">
+      <option name="closed" value="true" />
+      <created>1769013060872</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769013060872</updated>
+    </task>
+    <task id="LOCAL-00006" summary="files old">
+      <option name="closed" value="true" />
+      <created>1769013144314</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769013144314</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated banner image" />
+    <MESSAGE value="removed google tag manager script" />
+    <MESSAGE value="updated whatsapp number" />
+    <MESSAGE value="added redirect to venta-lampara-proyector.site" />
+    <MESSAGE value="upgrade astro and add plugin astrojs/tailwindcss" />
+    <MESSAGE value="files old" />
+    <option name="LAST_COMMIT_MESSAGE" value="files old" />
+  </component>
+</project>
