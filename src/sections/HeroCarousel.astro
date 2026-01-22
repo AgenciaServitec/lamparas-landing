@@ -9,57 +9,95 @@ const hero = {
 ---
 
 <section class="w-full mt-5">
-  <div class="relative overflow-hidden rounded-2xl
-              border border-black/10
-              bg-[#F9F9F6]
-              shadow-[0_20px_80px_rgba(0,0,0,0.12)]">
+  <div
+    class="relative overflow-hidden rounded-2xl
+           border border-black/10
+           shadow-[0_20px_80px_rgba(0,0,0,0.12)]
+           bg-[#F9F9F6] md:bg-transparent"
+  >
+    <video
+      class="absolute inset-0 w-full h-full object-cover hidden md:block"
+      src="/videos/hero-video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
 
-    <div class="absolute inset-0 bg-gradient-to-br
-                from-[#FAFAF8]
-                via-[#F2F2EE]
-                to-[#FAFAF8]"></div>
+    <div
+      class="absolute inset-0 hidden md:block
+             bg-gradient-to-br
+             from-black/55 via-black/40 to-black/55"
+    ></div>
 
-    <div class="absolute -top-32 -right-32 w-[520px] h-[520px]
-                rounded-full bg-primary/15 blur-3xl"></div>
+    <div
+      class="absolute -top-32 -right-32 w-[520px] h-[520px]
+             rounded-full blur-3xl
+             bg-primary/15 md:bg-primary/20"
+    ></div>
 
-    <div class="relative min-h-[400px] flex items-center">
-      <div class="w-full max-w-6xl mx-auto px-6 py-8 text-center">
+    <div class="relative min-h-[420px] flex items-center">
+      <div class="w-full max-w-6xl mx-auto px-6 py-10 text-center">
 
-        <h1 class="text-4xl sm:text-5xl md:text-6xl
-                   font-extrabold text-black leading-tight">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl
+                 font-extrabold leading-tight
+                 text-black md:text-white"
+        >
           {hero.title}
         </h1>
 
-        <p class="mt-4 text-base sm:text-lg
-                  text-black/65 max-w-2xl mx-auto">
+        <p
+          class="mt-4 text-base sm:text-lg max-w-2xl mx-auto
+                 text-black/65 md:text-white/85"
+        >
           {hero.subtitle}
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href={hero.primaryCta.href}
+            target="_blank"
             class="rounded-xl bg-primary text-black font-semibold
-                   px-6 py-3 hover:bg-primary-hover transition" target="_blank">
+                   px-6 py-3 hover:bg-primary-hover transition"
+          >
             {hero.primaryCta.label}
           </a>
 
           <a
             href={hero.secondaryCta.href}
-            class="rounded-xl border border-black/15 bg-white
-                   text-black font-semibold px-6 py-3
-                   hover:bg-black/5 transition">
+            class="rounded-xl font-semibold px-6 py-3 transition
+                   border border-black/15 bg-white text-black
+                   hover:bg-black/5
+                   md:border-white/30 md:bg-white/90 md:hover:bg-white"
+          >
             {hero.secondaryCta.label}
           </a>
         </div>
 
-        <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs text-black/60">
-          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+        <div
+          class="mt-4 flex flex-wrap justify-center gap-2 text-xs
+                 text-black/60 md:text-white/80"
+        >
+          <span
+            class="px-3 py-1 rounded-full
+                   border border-black/15 bg-white/70
+                   md:border-white/25 md:bg-white/10"
+          >
             Garantía 3 meses
           </span>
-          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+          <span
+            class="px-3 py-1 rounded-full
+                   border border-black/15 bg-white/70
+                   md:border-white/25 md:bg-white/10"
+          >
             Boleta / Factura
           </span>
-          <span class="px-3 py-1 rounded-full border border-black/15 bg-white/70">
+          <span
+            class="px-3 py-1 rounded-full
+                   border border-black/15 bg-white/70
+                   md:border-white/25 md:bg-white/10"
+          >
             Envíos a todo el Perú
           </span>
         </div>
@@ -68,3 +106,5 @@ const hero = {
     </div>
   </div>
 </section>
+
+
