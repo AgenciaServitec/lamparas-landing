@@ -1,0 +1,314 @@
+---
+const slides = [
+  {
+    id: 1,
+    badge: "Compatibilidad por modelo",
+    title: "Encuentra la lámpara ideal para tu proyector",
+    subtitle: "Compatibilidad garantizada según modelo. Asesoría técnica especializada.",
+    heroImage: "/images/elplp88.webp",
+    bullets: ["Alta duración", "Asesoría técnica", "Envíos a todo el Perú"],
+    primaryCta: { label: "Consultar compatibilidad", href: "/contacto" },
+    secondaryCta: { label: "Ver productos", href: "/productos" },
+  },
+  {
+    id: 2,
+    badge: "Precios referenciales",
+    title: "Lámparas desde S/ 350",
+    subtitle: "Confirmamos compatibilidad antes de cerrar la compra.",
+    heroImage: "/images/dt01025.webp",
+    bullets: ["Stock verificado", "Boleta/Factura", "Garantía"],
+    primaryCta: { label: "Ver productos", href: "/productos" },
+    secondaryCta: { label: "Cotizar por WhatsApp", href: "https://wa.me/51941801827" },
+  },
+  {
+    id: 3,
+    badge: "Asesoría rápida",
+    title: "¿No estás seguro del modelo?",
+    subtitle: "Envíanos una foto de la etiqueta y te guiamos para elegir la lámpara correcta.",
+    heroImage: "/images/lmp-d213.webp",
+    bullets: ["Te respondemos rápido", "Validamos compatibilidad", "Envíos a todo el Perú"],
+    primaryCta: { label: "Cotizar por WhatsApp", href: "https://wa.me/51941801827" },
+    secondaryCta: { label: "Ir a Contacto", href: "/contacto" },
+  },
+];
+---
+
+<section id="hero2" class="w-full">
+  <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-surface/40">
+    <div class="absolute inset-0 bg-gradient-to-br from-background via-surface/60 to-background"></div>
+    <div class="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-primary/5 blur-3xl"></div>
+    <div class="absolute inset-0 hero-noise"></div>
+
+    <div class="relative overflow-hidden">
+      <div
+        id="hero2Track"
+        class="flex transition-transform duration-700 ease-out"
+      >
+        {slides.map((s) => (
+          <div class="min-w-full">
+            <div class="h-[520px] lg:h-[620px] flex items-center">
+              <div class="w-full max-w-6xl mx-auto px-5 sm:px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                  <div class="md:col-span-7">
+                    {s.badge && (
+                      <span class="inline-flex items-center gap-2 mb-4 text-xs font-bold bg-primary text-black rounded-full px-3 py-1">
+                        <span class="w-2 h-2 rounded-full bg-black/70"></span>
+                        {s.badge}
+                      </span>
+                    )}
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+                      {s.title}
+                    </h1>
+
+                    <p class="mt-4 text-base sm:text-lg text-muted max-w-xl">
+                      {s.subtitle}
+                    </p>
+
+                    {s.bullets && (
+                      <ul class="mt-6 space-y-2 text-muted">
+                        {s.bullets.map((b) => (
+                          <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-primary"></span>
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div class="mt-8 grid grid-cols-1 sm:flex sm:flex-wrap gap-3">
+                      <a
+                        href={s.primaryCta.href}
+                        class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-primary text-black font-semibold px-6 py-3 hover:bg-primary-hover transition shadow-sm hover:shadow-md"
+                      >
+                        {s.primaryCta.label}
+                      </a>
+                      <a
+                        href={s.secondaryCta.href}
+                        class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-white/15 bg-surface/30 text-foreground font-semibold px-6 py-3 hover:bg-surface/50 transition"
+                      >
+                        {s.secondaryCta.label}
+                      </a>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-2 text-xs text-muted">
+                      <span class="px-3 py-1 rounded-full border border-white/10 bg-background/40">Garantía</span>
+                      <span class="px-3 py-1 rounded-full border border-white/10 bg-background/40">Boleta/Factura</span>
+                      <span class="px-3 py-1 rounded-full border border-white/10 bg-background/40">Stock verificado</span>
+                    </div>
+                  </div>
+
+                  <div class="md:col-span-5 hidden md:block">
+                    <div class="relative">
+                      <div class="absolute -inset-6 rounded-[2rem] bg-primary/10 blur-2xl"></div>
+
+                      {s.heroType === "product" ? (
+                        <!-- PRODUCTO -->
+                        <div class="relative rounded-2xl border border-white/10 bg-surface/20 p-6">
+                          <div class="rounded-xl bg-white/95 overflow-hidden grid place-items-center p-6">
+                            <img
+                              src={s.heroImage}
+                              alt={s.title}
+                              class="w-full h-[280px] lg:h-[320px] object-contain"
+                              loading="eager"
+                            />
+                          </div>
+
+                          <div class="mt-4 flex items-center justify-between text-xs text-muted">
+                            <span>Compatibilidad por modelo</span>
+                            <span class="text-foreground font-semibold">Servitec Perú</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <!-- SOPORTE / ASESORÍA -->
+                        <div class="relative rounded-2xl border border-white/10 bg-surface/20 p-6">
+                          <div class="rounded-xl border border-white/10 bg-background/40 p-5">
+                            <h3 class="text-foreground font-extrabold text-lg">
+                              Envíanos una foto de la etiqueta
+                            </h3>
+                            <p class="text-muted mt-2 text-sm">
+                              Con eso confirmamos el modelo exacto y la lámpara compatible.
+                            </p>
+
+                            <div class="mt-4 space-y-3 text-sm">
+                              <div class="flex gap-2">
+                                <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                                <p class="text-muted">Foto de la etiqueta del proyector</p>
+                              </div>
+                              <div class="flex gap-2">
+                                <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                                <p class="text-muted">Ciudad/Distrito para envío</p>
+                              </div>
+                              <div class="flex gap-2">
+                                <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                                <p class="text-muted">Si tienes el código de lámpara, mejor</p>
+                              </div>
+                            </div>
+
+                            <div class="mt-5 rounded-xl bg-surface/30 border border-white/10 p-4">
+                              <p class="text-xs text-muted mb-2">Ejemplo de mensaje</p>
+                              <p class="text-sm text-foreground leading-6">
+                                “Hola, mi proyector es <span class="text-primary font-semibold">Epson X41</span>.
+                                ¿Qué lámpara compatible tienen? Envío a <span class="text-primary font-semibold">Lima</span>.”
+                              </p>
+                            </div>
+
+                            <a
+                              href="https://wa.me/51941801827"
+                              class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-success/20 text-success border border-success/30 font-semibold px-6 py-3 hover:bg-success/25 transition"
+                            >
+                              💬 WhatsApp directo
+                            </a>
+                          </div>
+
+                          <div class="mt-4 flex items-center justify-between text-xs text-muted">
+                            <span>Soporte técnico</span>
+                            <span class="text-foreground font-semibold">Servitec Perú</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Controles -->
+      <div class="absolute left-5 right-5 bottom-5 flex items-center justify-between gap-4">
+        <!-- Dots -->
+        <div class="flex items-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              class="w-2.5 h-2.5 rounded-full bg-white/25 hover:bg-white/50 transition"
+              data-dot
+              data-dot-index={i}
+              aria-label={`Slide ${i + 1}`}
+              type="button"
+            ></button>
+          ))}
+        </div>
+
+        <!-- Counter -->
+        <div class="text-xs text-muted">
+          <span id="hero2Counter" class="text-foreground font-semibold">1</span>
+          <span class="mx-1">/</span>
+          <span>{slides.length}</span>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="absolute left-5 right-5 bottom-2 h-1 rounded-full bg-white/10 overflow-hidden">
+        <div id="hero2Progress" class="h-full w-0 bg-primary"></div>
+      </div>
+
+      <!-- Prev/Next (desktop) -->
+      <button
+        id="hero2Prev"
+        class="hidden lg:grid absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 place-items-center rounded-xl border border-white/10 bg-surface/40 hover:bg-surface/70 transition"
+        type="button"
+        aria-label="Anterior"
+      >
+        ‹
+      </button>
+      <button
+        id="hero2Next"
+        class="hidden lg:grid absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 place-items-center rounded-xl border border-white/10 bg-surface/40 hover:bg-surface/70 transition"
+        type="button"
+        aria-label="Siguiente"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+
+  <style>
+      .hero-noise {
+          background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+          background-size: 24px 24px;
+          opacity: .08;
+          mix-blend-mode: overlay;
+          pointer-events: none;
+      }
+  </style>
+
+  <script is:inline>
+    const AUTOPLAY_MS = 9000;
+
+    const root = document.getElementById("hero2");
+    const track = document.getElementById("hero2Track");
+    const dots = root.querySelectorAll("[data-dot]");
+    const counter = document.getElementById("hero2Counter");
+    const progress = document.getElementById("hero2Progress");
+    const prevBtn = document.getElementById("hero2Prev");
+    const nextBtn = document.getElementById("hero2Next");
+
+    const slideCount = dots.length;
+
+    let index = 0;
+    let startTs = performance.now();
+
+    function updateUI() {
+      const pct = (-index * 100);
+      track.style.transform = `translateX(${pct}%)`;
+
+      dots.forEach((d, i) => {
+        d.classList.toggle("bg-primary", i === index);
+        d.classList.toggle("bg-white/25", i !== index);
+      });
+
+      if (counter) counter.textContent = String(index + 1);
+
+      startTs = performance.now();
+      if (progress) progress.style.width = "0%";
+    }
+
+    function next() {
+      index = (index + 1) % slideCount;
+      updateUI();
+    }
+    function prev() {
+      index = (index - 1 + slideCount) % slideCount;
+      updateUI();
+    }
+
+    // dots
+    dots.forEach((d, i) => d.addEventListener("click", () => { index = i; updateUI(); }));
+
+    // prev/next
+    prevBtn?.addEventListener("click", prev);
+    nextBtn?.addEventListener("click", next);
+
+    // autoplay
+    setInterval(() => next(), AUTOPLAY_MS);
+
+    // progress
+    function tick() {
+      const elapsed = performance.now() - startTs;
+      const pct = Math.min(100, (elapsed / AUTOPLAY_MS) * 100);
+      if (progress) progress.style.width = pct + "%";
+      requestAnimationFrame(tick);
+    }
+
+    // swipe
+    let x0 = null;
+    root.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener("touchend", (e) => {
+      if (x0 == null) return;
+      const x1 = e.changedTouches[0].clientX;
+      const dx = x1 - x0;
+      x0 = null;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) next(); else prev();
+    }, { passive: true });
+
+    // init
+    updateUI();
+    requestAnimationFrame(tick);
+  </script>
+</section>

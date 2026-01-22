@@ -4,12 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="files old">
+      <change afterPath="$PROJECT_DIR$/public/icons/phone.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/benq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/epson.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/hitachi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/optoma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/panasonic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/brands/sony.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/home/LegalSections.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/AddToCartButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/ContentWidth.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/HeroCarousel.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/cartStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data-list/products.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data-list/terms-and-conditions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/about/index.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/cart/index.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/product/[slug].astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/products/ProductGrid.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/Brands.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/CTA.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/PurchaseExplanation.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/data-store.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/data-store.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/PrivacyPolicies.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/PrivacyPolicies.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/SeoSection.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/SeoSection.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/privacy-policies.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/products.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/BaseLayout.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BaseLayout.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about-us/index.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/contact/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/privacy-policies/index.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/theme/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/theme/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.mjs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +61,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="Astro Component" />
       </list>
     </option>
   </component>
@@ -57,6 +101,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "update__project",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Angel/WebstormProjects/lamparas-landing/public/images/brands",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -64,11 +109,16 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images\brands" />
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\src\components\ui" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images" />
     </key>
@@ -92,7 +142,8 @@
       <workItem from="1768601548027" duration="38000" />
       <workItem from="1768601740254" duration="583000" />
       <workItem from="1768859160739" duration="4436000" />
-      <workItem from="1769011734408" duration="1151000" />
+      <workItem from="1769011734408" duration="3622000" />
+      <workItem from="1769015404059" duration="24900000" />
     </task>
     <task id="LOCAL-00001" summary="updated banner image">
       <option name="closed" value="true" />
@@ -126,7 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768861880074</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="upgrade astro and add plugin astrojs/tailwindcss">
+      <option name="closed" value="true" />
+      <created>1769013060872</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769013060872</updated>
+    </task>
+    <task id="LOCAL-00006" summary="files old">
+      <option name="closed" value="true" />
+      <created>1769013144314</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769013144314</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +204,8 @@
     <MESSAGE value="removed google tag manager script" />
     <MESSAGE value="updated whatsapp number" />
     <MESSAGE value="added redirect to venta-lampara-proyector.site" />
-    <option name="LAST_COMMIT_MESSAGE" value="added redirect to venta-lampara-proyector.site" />
+    <MESSAGE value="upgrade astro and add plugin astrojs/tailwindcss" />
+    <MESSAGE value="files old" />
+    <option name="LAST_COMMIT_MESSAGE" value="files old" />
   </component>
 </project>

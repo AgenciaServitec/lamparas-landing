@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWidth from "../../components/ui/ContentWidth.astro";
+
+const product = {
+  brand: "Hitachi",
+  code: "DT01025",
+  title: "Lámpara DT01025 para Hitachi",
+  price: 215,
+  sku: "DT01025",
+  stockLabel: "En stock",
+  warranty: "Garantía 3 meses",
+  images: [
+    "/images/dt01025.webp",
+    "/images/elplp50.webp",
+    "/images/dt01025.webp",
+    "/images/dt01025.webp",
+  ],
+  compatibles: ["CP-X201", "CP-X251", "CP-X301"],
+};
+---
+
+<BaseLayout>
+  <ContentWidth>
+    <div class="py-8">
+      <nav class="text-sm text-muted mb-6">
+        <ol class="flex flex-wrap gap-2">
+          <li><a class="hover:text-foreground" href="/">Inicio</a></li>
+          <li class="opacity-60">/</li>
+          <li><a class="hover:text-foreground" href="/productos">Productos</a></li>
+          <li class="opacity-60">/</li>
+          <li class="text-foreground">{product.code}</li>
+        </ol>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section class="lg:col-span-7">
+          <div class="bg-surface/60 rounded-2xl border border-white/10 p-3">
+            <div class="bg-white rounded-xl overflow-hidden">
+              <img
+                id="mainImage"
+                src={product.images[0]}
+                alt={product.title}
+                class="w-full h-[22rem] sm:h-[28rem] lg:h-[32rem] object-contain"
+                loading="eager"
+              />
+            </div>
+
+            <div class="mt-3 grid grid-cols-4 gap-3">
+              {product.images.map((src, idx) => (
+                <button
+                  type="button"
+                  class={`thumb group bg-white rounded-xl overflow-hidden border transition
+                    ${idx === 0 ? "border-primary" : "border-transparent hover:border-white/20"}`}
+                  data-src={src}
+                  aria-label={`Ver imagen ${idx + 1}`}
+                >
+                  <img
+                    src={src}
+                    alt={`${product.title} - vista ${idx + 1}`}
+                    class="w-full h-20 object-contain group-hover:scale-[1.02] transition"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-6 bg-surface/60 rounded-2xl border border-white/10">
+            <div class="flex gap-6 px-5 pt-4 border-b border-white/10 text-sm">
+              <button class="tab-btn text-foreground border-b-2 border-primary pb-3" data-tab="desc">Descripción</button>
+              <!--<button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="compat">Compatibilidad</button>-->
+              <!--<button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="garantia">Garantía</button>-->
+              <!--<button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="envio">Envío</button>-->
+            </div>
+
+            <div class="p-5">
+              <div class="tab-panel" data-panel="desc">
+                <p class="leading-7">
+                  Lámpara de repuesto compatible, ideal para recuperar el brillo y la nitidez de tu proyector.
+                  Si nos indicas el modelo exacto, confirmamos compatibilidad antes de la compra.
+                </p>
+                <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted">
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Alta duración</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Asesoría técnica</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Producto probado</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Boleta / factura</li>
+                </ul>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="compat">
+                <p class="leading-7">
+                  Modelos comunes compatibles (referencial):
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {product.compatibles.map((m) => (
+                    <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+                <p class="mt-4 text-sm text-muted">
+                  *La compatibilidad final se confirma con el modelo exacto del proyector.
+                </p>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="garantia">
+                <p class="leading-7">
+                  {product.warranty}. Recomendamos instalación con técnico o siguiendo guía para evitar daños por manipulación.
+                </p>
+              </div>
+
+              <div class="tab-panel hidden" data-panel="envio">
+                <p class="leading-7">
+                  Envíos a Lima y provincias. También puedes coordinar recojo. Te confirmamos costo y tiempos por WhatsApp.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="lg:col-span-5">
+          <div class="lg:sticky lg:top-6 bg-surface/60 rounded-2xl border border-white/10 p-5">
+            <div class="flex items-center gap-3">
+              <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                {product.brand}
+              </span>
+              <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
+                SKU: {product.sku}
+              </span>
+              <span class="ml-auto text-xs px-3 py-1 rounded-full bg-success/15 text-success border border-success/20">
+                {product.stockLabel}
+              </span>
+            </div>
+
+            <h1 class="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight">
+              {product.title}
+            </h1>
+
+            <div class="mt-3 flex items-end gap-3">
+              <div class="text-3xl font-extrabold text-foreground">
+                S/ {product.price}
+              </div>
+              <div class="text-sm text-muted pb-1">
+                Precio referencial
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                <div class="text-xs text-muted">Compatibilidad</div>
+                <div class="mt-1 text-sm text-foreground font-semibold">Por modelo</div>
+                <div class="mt-2 text-xs text-muted">Indícanos tu modelo exacto.</div>
+              </div>
+
+              <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                <div class="text-xs text-muted">Garantía</div>
+                <div class="mt-1 text-sm text-foreground font-semibold">{product.warranty}</div>
+                <div class="mt-2 text-xs text-muted">Soporte post-venta.</div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label for="modelInput" class="block text-sm font-medium text-foreground">
+                Modelo de tu proyector (para confirmar compatibilidad)
+              </label>
+              <input
+                id="modelInput"
+                name="model"
+                placeholder="Ej: Hitachi CP-X251"
+                class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+              <p class="mt-2 text-xs text-muted">
+                Si no lo sabes, envía foto de la etiqueta del proyector por WhatsApp.
+              </p>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 gap-3">
+              <button
+                type="button"
+                class="w-full rounded-xl bg-primary text-black font-semibold py-3 hover:bg-primary-hover transition"
+              >
+                Agregar al carrito
+              </button>
+
+              <a
+                id="whatsappBtn"
+                href="#"
+                class="w-full rounded-xl bg-[#22c55e] text-black font-semibold py-3 text-center hover:opacity-95 transition"
+              >
+                Consultar por WhatsApp
+              </a>
+
+              <div class="rounded-xl border border-white/10 bg-background/40 p-4 text-sm text-muted">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 w-2 h-2 rounded-full bg-primary"></span>
+                  <div>
+                    <p class="text-foreground font-semibold">Entrega y coordinación</p>
+                    <p class="mt-1">Confirmamos stock, compatibilidad y envío antes del cierre.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </ContentWidth>
+
+  <script is:inline>
+    const mainImage = document.getElementById("mainImage");
+    const thumbs = document.querySelectorAll(".thumb");
+
+    thumbs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const src = btn.getAttribute("data-src");
+        if (src && mainImage) mainImage.src = src;
+
+        thumbs.forEach((b) => b.classList.remove("border-primary"));
+        btn.classList.add("border-primary");
+      });
+    });
+
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const tab = btn.getAttribute("data-tab");
+
+        tabBtns.forEach((b) => {
+          b.classList.remove("text-foreground", "border-b-2", "border-primary");
+          b.classList.add("text-muted");
+        });
+        btn.classList.add("text-foreground", "border-b-2", "border-primary");
+        btn.classList.remove("text-muted");
+
+        panels.forEach((p) => {
+          const key = p.getAttribute("data-panel");
+          p.classList.toggle("hidden", key !== tab);
+        });
+      });
+    });
+
+    const modelInput = document.getElementById("modelInput");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+
+    const phone = "51941801827"; // cámbialo si usarás otro
+    const productTitle = ${JSON.stringify(product.title)};
+    const price = ${JSON.stringify(product.price)};
+
+    function buildWhatsAppLink() {
+      const model = modelInput?.value?.trim() || "No indicado";
+      const msg =
+        `Hola, quiero consultar por este producto:%0A%0A` +
+        `• ${productTitle}%0A` +
+        `• Precio referencial: S/ ${price}%0A` +
+        `• Modelo de proyector: ${encodeURIComponent(model)}%0A%0A` +
+        `¿Me confirmas compatibilidad y stock?`;
+
+      return `https://wa.me/${phone}?text=${msg}`;
+    }
+
+    function syncWhatsapp() {
+      if (whatsappBtn) whatsappBtn.href = buildWhatsAppLink();
+    }
+
+    modelInput?.addEventListener("input", syncWhatsapp);
+    syncWhatsapp();
+  </script>
+</BaseLayout>

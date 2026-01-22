@@ -1,0 +1,367 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentWidth from "../../components/ui/ContentWidth.astro";
+
+const whatsappNumber = "51941801827";
+---
+
+<BaseLayout>
+  <ContentWidth>
+    <div class="py-10">
+      <header class="mb-6">
+        <p class="text-sm text-muted">Servitec Perú</p>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-foreground">Carrito</h1>
+        <p class="mt-3 text-muted max-w-2xl">
+          Revisa tus productos y envíanos tu pedido por WhatsApp para confirmar compatibilidad, stock y envío.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section class="lg:col-span-8">
+          <div class="rounded-2xl border border-white/10 bg-surface/50 p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="text-xl font-extrabold text-foreground">Productos</h2>
+              <button
+                id="clearCartBtn"
+                type="button"
+                class="text-sm text-muted hover:text-foreground transition"
+              >
+                Vaciar carrito
+              </button>
+            </div>
+
+            <div id="cartList" class="mt-5 space-y-4"></div>
+
+            <div id="emptyState" class="hidden mt-6 rounded-xl border border-white/10 bg-background/40 p-6">
+              <h3 class="text-foreground font-bold">Tu carrito está vacío</h3>
+              <p class="text-muted mt-2">
+                Para ver cómo se ve la estructura, te mostramos productos de ejemplo. También puedes ir a productos y agregar.
+              </p>
+              <div class="mt-4 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/products"
+                  class="inline-flex items-center justify-center rounded-xl bg-primary text-black font-semibold px-6 py-3 hover:bg-primary-hover transition"
+                >
+                  Ver productos
+                </a>
+                <button
+                  id="loadDemoBtn"
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-surface/50 text-foreground font-semibold px-6 py-3 hover:bg-surface/70 transition"
+                >
+                  Cargar demo
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-2xl border border-white/10 bg-surface/50 p-6">
+            <h2 class="text-xl font-extrabold text-foreground">Datos para confirmar compatibilidad</h2>
+            <p class="text-muted mt-2">
+              Estos datos se incluirán en el mensaje de WhatsApp para una atención más rápida.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-foreground" for="customerName">Nombre</label>
+                <input
+                  id="customerName"
+                  placeholder="Tu nombre"
+                  class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-foreground" for="customerPhone">WhatsApp / Teléfono</label>
+                <input
+                  id="customerPhone"
+                  placeholder="Ej: 941 801 827"
+                  class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-foreground" for="projectorModel">Modelo de proyector (recomendado)</label>
+                <input
+                  id="projectorModel"
+                  placeholder="Ej: Epson X41 / BenQ MS502"
+                  class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-foreground" for="district">Distrito / Ciudad (opcional)</label>
+                <input
+                  id="district"
+                  placeholder="Ej: Chorrillos / Arequipa"
+                  class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="block text-sm font-medium text-foreground" for="note">Observación (opcional)</label>
+                <textarea
+                  id="note"
+                  rows="3"
+                  placeholder="Ej: necesito boleta/factura, o envío a provincia..."
+                  class="mt-2 w-full rounded-xl bg-background/50 border border-white/10 px-4 py-3 text-foreground placeholder:text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="lg:col-span-4">
+          <div class="lg:sticky lg:top-6 rounded-2xl border border-white/10 bg-surface/50 p-6">
+            <h2 class="text-xl font-extrabold text-foreground">Resumen</h2>
+
+            <div class="mt-4 space-y-2 text-sm">
+              <div class="flex justify-between text-muted">
+                <span>Items</span>
+                <span id="itemsCount">0</span>
+              </div>
+              <div class="flex justify-between text-muted">
+                <span>Subtotal</span>
+                <span id="subtotal">S/ 0</span>
+              </div>
+              <div class="flex justify-between text-muted">
+                <span>Envío</span>
+                <span class="text-muted">Por coordinar</span>
+              </div>
+
+              <div class="pt-3 mt-3 border-t border-white/10 flex justify-between">
+                <span class="text-foreground font-bold">Total estimado</span>
+                <span id="total" class="text-foreground font-extrabold">S/ 0</span>
+              </div>
+            </div>
+
+            <a
+              id="whatsappCheckout"
+              href="#"
+              target="_blank"
+              class="mt-6 w-full inline-flex gap-2 items-center justify-center rounded-xl bg-primary text-black font-semibold px-6 py-3 hover:bg-primary-hover transition"
+            >
+              <svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+                <path d="M476.9 161.1C435 119.1 379.2 96 319.9 96C197.5 96 97.9 195.6 97.9 318C97.9 357.1 108.1 395.3 127.5 429L96 544L213.7 513.1C246.1 530.8 282.6 540.1 319.8 540.1L319.9 540.1C442.2 540.1 544 440.5 544 318.1C544 258.8 518.8 203.1 476.9 161.1zM319.9 502.7C286.7 502.7 254.2 493.8 225.9 477L219.2 473L149.4 491.3L168 423.2L163.6 416.2C145.1 386.8 135.4 352.9 135.4 318C135.4 216.3 218.2 133.5 320 133.5C369.3 133.5 415.6 152.7 450.4 187.6C485.2 222.5 506.6 268.8 506.5 318.1C506.5 419.9 421.6 502.7 319.9 502.7zM421.1 364.5C415.6 361.7 388.3 348.3 383.2 346.5C378.1 344.6 374.4 343.7 370.7 349.3C367 354.9 356.4 367.3 353.1 371.1C349.9 374.8 346.6 375.3 341.1 372.5C308.5 356.2 287.1 343.4 265.6 306.5C259.9 296.7 271.3 297.4 281.9 276.2C283.7 272.5 282.8 269.3 281.4 266.5C280 263.7 268.9 236.4 264.3 225.3C259.8 214.5 255.2 216 251.8 215.8C248.6 215.6 244.9 215.6 241.2 215.6C237.5 215.6 231.5 217 226.4 222.5C221.3 228.1 207 241.5 207 268.8C207 296.1 226.9 322.5 229.6 326.2C232.4 329.9 268.7 385.9 324.4 410C359.6 425.2 373.4 426.5 391 423.9C401.7 422.3 423.8 410.5 428.4 397.5C433 384.5 433 373.4 431.6 371.1C430.3 368.6 426.6 367.2 421.1 364.5z"/>
+              </svg>
+              <span>Enviar pedido por WhatsApp</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </ContentWidth>
+
+  <script is:inline>
+    const STORAGE_KEY = "servitec_cart_v1";
+    const whatsappNumber = "${whatsappNumber}";
+
+    const demoCart = [
+      {
+        id: "demo_1",
+        slug: "elplp88-epson",
+        code: "ELPLP88",
+        brand: "Epson",
+        name: "Lámpara ELPLP88 para Epson",
+        price: 350,
+        imagePath: "/images/elplp88.webp",
+        qty: 1,
+      },
+      {
+        id: "demo_2",
+        slug: "dt01025-hitachi",
+        code: "DT01025",
+        brand: "Hitachi",
+        name: "Lámpara DT01025 para Hitachi",
+        price: 390,
+        imagePath: "/images/dt01025.webp",
+        qty: 2,
+      },
+    ];
+
+    function getCart() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function setCart(items) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      window.dispatchEvent(new CustomEvent("cart:updated", { detail: items }));
+    }
+
+    function money(n) {
+      return `S/ ${Number(n || 0).toFixed(0)}`;
+    }
+
+    function calc(cart) {
+      const items = cart.reduce((acc, x) => acc + (x.qty || 0), 0);
+      const subtotal = cart.reduce((acc, x) => acc + (x.price * (x.qty || 0)), 0);
+      return { items, subtotal, total: subtotal };
+    }
+
+    const cartListEl = document.getElementById("cartList");
+    const emptyStateEl = document.getElementById("emptyState");
+
+    const itemsCountEl = document.getElementById("itemsCount");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
+    const whatsappCheckoutEl = document.getElementById("whatsappCheckout");
+
+    const customerNameEl = document.getElementById("customerName");
+    const customerPhoneEl = document.getElementById("customerPhone");
+    const projectorModelEl = document.getElementById("projectorModel");
+    const districtEl = document.getElementById("district");
+    const noteEl = document.getElementById("note");
+
+    function buildWhatsAppLink(cart) {
+      const name = (customerNameEl?.value || "").trim();
+      const phone = (customerPhoneEl?.value || "").trim();
+      const model = (projectorModelEl?.value || "").trim();
+      const district = (districtEl?.value || "").trim();
+      const note = (noteEl?.value || "").trim();
+
+      let text = "Hola, quiero cotizar este pedido:%0A%0A";
+
+      cart.forEach((item) => {
+        text += `• ${item.qty}x ${item.code} para ${item.brand} — ${encodeURIComponent(money(item.price))}%0A`;
+      });
+
+      const { subtotal } = calc(cart);
+      text += `%0ATotal estimado: ${encodeURIComponent(money(subtotal))}%0A%0A`;
+
+      if (name) text += `Nombre: ${encodeURIComponent(name)}%0A`;
+      if (phone) text += `WhatsApp: ${encodeURIComponent(phone)}%0A`;
+      if (model) text += `Modelo de proyector: ${encodeURIComponent(model)}%0A`;
+      if (district) text += `Distrito/Ciudad: ${encodeURIComponent(district)}%0A`;
+      if (note) text += `%0AObservación: ${encodeURIComponent(note)}%0A`;
+
+      text += "%0A¿Me confirmas compatibilidad, stock y envío?";
+
+      return `https://wa.me/${whatsappNumber}?text=${text}`;
+    }
+
+    function updateSummary(cart) {
+      const { items, subtotal, total } = calc(cart);
+      itemsCountEl.textContent = String(items);
+      subtotalEl.textContent = money(subtotal);
+      totalEl.textContent = money(total);
+
+      whatsappCheckoutEl.href = buildWhatsAppLink(cart);
+      whatsappCheckoutEl.classList.toggle("pointer-events-none", cart.length === 0);
+      whatsappCheckoutEl.classList.toggle("opacity-60", cart.length === 0);
+    }
+
+    function renderCart(cart) {
+      cartListEl.innerHTML = "";
+
+      if (!cart.length) {
+        emptyStateEl.classList.remove("hidden");
+      } else {
+        emptyStateEl.classList.add("hidden");
+      }
+
+      cart.forEach((item) => {
+        const row = document.createElement("div");
+        row.className =
+          "rounded-2xl border border-white/10 bg-background/40 p-4 flex flex-col sm:flex-row gap-4 sm:items-center";
+
+        row.innerHTML = `
+          <div class="w-full sm:w-24 flex-shrink-0">
+            <div class="rounded-xl bg-white overflow-hidden">
+              <img src="${item.imagePath}" alt="${item.name}" class="w-full h-20 object-contain" />
+            </div>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <a href="/producto/${item.slug}" class="text-foreground font-semibold hover:underline">
+              ${item.code} <span class="text-muted font-normal">para</span> ${item.brand}
+            </a>
+            <p class="text-sm text-muted mt-1 line-clamp-2">${item.name}</p>
+            <p class="mt-2 text-sm text-foreground font-bold">${money(item.price)}</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button data-action="dec" class="w-10 h-10 rounded-xl border border-white/10 bg-surface/50 hover:bg-surface/70 transition">−</button>
+            <span class="w-10 text-center text-foreground font-semibold">${item.qty}</span>
+            <button data-action="inc" class="w-10 h-10 rounded-xl border border-white/10 bg-surface/50 hover:bg-surface/70 transition">+</button>
+          </div>
+
+          <div class="flex items-center justify-between sm:justify-end gap-3 sm:w-40">
+            <p class="text-foreground font-extrabold">${money(item.price * item.qty)}</p>
+            <button data-action="remove" class="text-sm text-muted hover:text-foreground transition cursor-pointer">
+              <svg class="w-6 text-error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+                <path d="M232.7 69.9L224 96L128 96C110.3 96 96 110.3 96 128C96 145.7 110.3 160 128 160L512 160C529.7 160 544 145.7 544 128C544 110.3 529.7 96 512 96L416 96L407.3 69.9C402.9 56.8 390.7 48 376.9 48L263.1 48C249.3 48 237.1 56.8 232.7 69.9zM512 208L128 208L149.1 531.1C150.7 556.4 171.7 576 197 576L443 576C468.3 576 489.3 556.4 490.9 531.1L512 208z"/>
+              </svg>
+            </button>
+          </div>
+        `;
+
+        row.querySelector('[data-action="inc"]').addEventListener("click", () => {
+          const cartNow = getCart();
+          const found = cartNow.find((x) => x.id === item.id);
+          if (found) found.qty += 1;
+          setCart(cartNow);
+          renderCart(cartNow);
+          updateSummary(cartNow);
+        });
+
+        row.querySelector('[data-action="dec"]').addEventListener("click", () => {
+          const cartNow = getCart();
+          const found = cartNow.find((x) => x.id === item.id);
+          if (!found) return;
+          found.qty -= 1;
+          if (found.qty <= 0) {
+            const next = cartNow.filter((x) => x.id !== item.id);
+            setCart(next);
+            renderCart(next);
+            updateSummary(next);
+            return;
+          }
+          setCart(cartNow);
+          renderCart(cartNow);
+          updateSummary(cartNow);
+        });
+
+        row.querySelector('[data-action="remove"]').addEventListener("click", () => {
+          const cartNow = getCart().filter((x) => x.id !== item.id);
+          setCart(cartNow);
+          renderCart(cartNow);
+          updateSummary(cartNow);
+        });
+
+        cartListEl.appendChild(row);
+      });
+
+      updateSummary(cart);
+    }
+
+    document.getElementById("loadDemoBtn")?.addEventListener("click", () => {
+      setCart(demoCart);
+      renderCart(demoCart);
+    });
+
+    document.getElementById("clearCartBtn")?.addEventListener("click", () => {
+      setCart([]);
+      renderCart([]);
+    });
+
+    ["customerName","customerPhone","projectorModel","district","note"].forEach((id) => {
+      document.getElementById(id)?.addEventListener("input", () => {
+        updateSummary(getCart());
+      });
+    });
+
+    const initial = getCart();
+    renderCart(initial);
+
+    window.addEventListener("cart:updated", (e) => {
+      const items = e.detail || getCart();
+      renderCart(items);
+      updateSummary(items);
+    });
+  </script>
+</BaseLayout>

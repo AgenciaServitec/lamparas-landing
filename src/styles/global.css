@@ -1,3 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-background: #0f1115;
+    --color-surface: #161a22;
+
+    --color-foreground: #ffffff;
+    --color-muted: #b5b8c5;
+
+    --color-primary: #f5c400;
+    --color-primary-hover: #e6b800;
+
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+}
+
+@layer base {
+    body {
+        @apply bg-background text-foreground antialiased;
+    }
+
+    p {
+        @apply text-muted;
+    }
+}

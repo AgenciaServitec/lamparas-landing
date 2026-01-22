@@ -1,0 +1,49 @@
+---
+import AddToCartButton from "../../components/ui/AddToCartButton";
+
+type Props = {
+  product: {
+    id: string;
+    slug: string;
+    code: string;
+    brand: string;
+    name: string;
+    price: number;
+    stock: number;
+    imagePath: string;
+  };
+};
+
+const { product } = Astro.props;
+---
+
+<article class="rounded-2xl border border-white/10 bg-surface/50 hover:bg-surface/70 transition p-4">
+  <a href={`/product/${product.slug}`} class="group block">
+    <div class="relative rounded-xl bg-white overflow-hidden">
+      <img
+        src={product.imagePath}
+        alt={product.name}
+        class="w-full h-56 object-contain group-hover:scale-[1.02] transition"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="mt-4">
+      <h3 class="text-foreground font-semibold leading-6">
+        {product.code} <span class="text-muted font-normal">para</span> {product.brand}
+      </h3>
+
+      <p class="text-sm text-muted mt-1">
+        {product.name}
+      </p>
+
+      <p class="mt-3 text-foreground font-extrabold">
+        S/ {product.price}
+      </p>
+    </div>
+  </a>
+
+  <div class="mt-4">
+    <AddToCartButton client:load product={product} />
+  </div>
+</article>
