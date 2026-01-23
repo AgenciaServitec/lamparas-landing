@@ -9,7 +9,10 @@ type Product = {
   code: string;
   imagePath: string;
   price: number;
+  compareAtPrice?: number;
   stock: number;
+  lampType?: "compatible" | "original";
+  includesIgv?: boolean;
 };
 
 type Props = {
@@ -23,7 +26,7 @@ const { title, subtitle, products } = Astro.props;
 
 <section class="w-full mt-16">
   {(title || subtitle) && (
-    <div class="flex items-end justify-between gap-4 mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
       <div>
         {title && <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground">{title}</h2>}
         {subtitle && <p class="text-muted mt-1">{subtitle}</p>}
@@ -31,14 +34,14 @@ const { title, subtitle, products } = Astro.props;
 
       <a
         href="/products"
-        class="hidden sm:inline-flex text-sm text-muted hover:text-foreground transition"
+        class="inline-flex text-sm text-muted hover:text-foreground transition sm:ml-auto"
       >
         Ver todo →
       </a>
     </div>
   )}
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
     {products.map((p) => (
       <ProductCard product={{
         id: p.id,
@@ -47,8 +50,11 @@ const { title, subtitle, products } = Astro.props;
         brand: p.brand ?? "Genérico",
         name: p.name,
         price: p.price ?? 0,
+        compareAtPrice: p.compareAtPrice,
         stock: p.stock ?? 0,
         imagePath: p.imagePath,
+        lampType: p.lampType,
+        includesIgv: p.includesIgv,
       }} />
     ))}
   </div>

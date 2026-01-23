@@ -3,41 +3,158 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentWidth from "../../components/ui/ContentWidth.astro";
 import ProductCard from "./ProductCard.astro";
 import { products } from "../../data-list";
+
+const brands = Array.from(
+  new Set((products || []).map((p) => p.brand).filter(Boolean))
+);
 ---
 
 <BaseLayout>
   <ContentWidth>
     <div class="py-10">
       <div class="mb-6">
-        <h1 class="text-3xl font-extrabold text-foreground">Nuestros productos</h1>
-        <p class="text-muted mt-2">Selecciona tu lámpara y agrégala al carrito para cotizar por WhatsApp.</p>
+        <h1 class="text-3xl font-extrabold text-foreground">
+          Nuestros productos
+        </h1>
+        <p class="text-muted mt-2">
+          Selecciona tu lámpara y agrégala al carrito para cotizar por WhatsApp.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-        {(products || []).map((p) => (
-          <ProductCard
-            product={{
-              id: p.id,
-              slug: p.slug,
-              code: p.code,
-              brand: p.brand,
-              name: p.title,
-              price: p.price,
-              stock: p.stock,
-              imagePath: p.imagePath,
-            }}
-          />
+      <div class="mb-6 flex flex-col lg:flex-row gap-3 lg:items-center">
+        <div class="relative w-full lg:w-auto">
+          <select
+            id="filterBrand"
+            class="w-full appearance-none rounded-xl border border-white/10 bg-surface/50
+             px-4 py-3 pr-10 text-base text-foreground
+             focus:outline-none focus:ring-2 focus:ring-primary/40"
+          >
+            <option value="">Todas las marcas</option>
+            {brands.map((brand) => (
+              <option value={brand}>{brand}</option>
+            ))}
+          </select>
+
+          <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
+      <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z"/>
+      </svg>
+    </span>
+        </div>
+
+        <div class="relative w-full lg:w-auto">
+          <select
+            id="filterStock"
+            class="w-full appearance-none rounded-xl border border-white/10 bg-surface/50
+             px-4 py-3 pr-10 text-base text-foreground
+             focus:outline-none focus:ring-2 focus:ring-primary/40"
+          >
+            <option value="">Todos</option>
+            <option value="in">En stock</option>
+            <option value="out">Agotado</option>
+          </select>
+
+          <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
+      <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z"/>
+      </svg>
+    </span>
+        </div>
+
+        <input
+          id="filterSearch"
+          type="text"
+          placeholder="Buscar por código o marca…"
+          class="w-full lg:max-w-sm rounded-xl
+           border border-white/10 bg-surface/50
+           px-4 py-3 text-base text-foreground
+           placeholder:text-muted
+           focus:outline-none focus:ring-2 focus:ring-primary/40"
+        />
+
+        <div class="lg:ml-auto text-sm text-muted">
+          ¿No ves tu modelo?{" "}
+          <a href="/contact" class="text-primary hover:underline font-medium">
+            Escríbenos
+          </a>
+        </div>
+      </div>
+
+
+      <div
+        id="productGrid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+      >
+      {(products || []).map((p) => (
+          <div
+            class="product-item"
+            data-brand={p.brand}
+            data-stock={p.stock > 0 ? "in" : "out"}
+            data-search={`${p.code} ${p.brand} ${p.title}`.toLowerCase()}
+          >
+            <ProductCard
+              product={{
+                id: p.id,
+                slug: p.slug,
+                code: p.code,
+                brand: p.brand,
+                name: p.title,
+                price: p.price,
+                compareAtPrice: p.compareAtPrice,
+                stock: p.stock,
+                imagePath: p.imagePath,
+                lampType: p.lampType,
+                includesIgv: p.includesIgv,
+              }}
+            />
+          </div>
         ))}
       </div>
 
       <div class="mt-12 flex justify-center">
         <a
           href="/contact"
-          class="inline-flex items-center justify-center rounded-xl bg-primary text-black font-semibold px-6 py-3 hover:bg-primary-hover transition"
+          class="inline-flex items-center justify-center
+                 rounded-xl bg-primary text-black font-semibold
+                 px-6 py-3 hover:bg-primary-hover transition"
         >
           No encuentro mi lámpara
         </a>
       </div>
     </div>
   </ContentWidth>
+
+  <script is:inline>
+    const brandSelect = document.getElementById("filterBrand");
+    const stockSelect = document.getElementById("filterStock");
+    const searchInput = document.getElementById("filterSearch");
+    const items = document.querySelectorAll(".product-item");
+
+    function applyFilters() {
+      const brand = brandSelect.value;
+      const stock = stockSelect.value;
+      const search = searchInput.value.toLowerCase().trim();
+
+      items.forEach((item) => {
+        const itemBrand = item.dataset.brand;
+        const itemStock = item.dataset.stock;
+        const itemSearch = item.dataset.search || "";
+
+        const matchBrand = !brand || itemBrand === brand;
+        const matchStock = !stock || itemStock === stock;
+        const matchSearch = !search || itemSearch.includes(search);
+
+        item.style.display =
+          matchBrand && matchStock && matchSearch ? "" : "none";
+      });
+    }
+
+    brandSelect.addEventListener("change", applyFilters);
+    stockSelect.addEventListener("change", applyFilters);
+    searchInput.addEventListener("input", applyFilters);
+  </script>
 </BaseLayout>
+
+<style>
+  select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+</style>
