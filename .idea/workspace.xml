@@ -5,13 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/5811119560-svv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp34.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp46.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp53.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/elplp77.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/data-store.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/data-store.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/types.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data-list/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/cart/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cart/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/contact/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/ProductGrid.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductGrid.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/products/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,31 +75,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Angel/WebstormProjects/lamparas-landing/public/videos&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Angel/WebstormProjects/lamparas-landing/public/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images" />
       <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\videos" />
       <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images\brands" />
       <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\src\components\ui" />
@@ -212,6 +232,6 @@
     <MESSAGE value="updated content in contact page" />
     <MESSAGE value="added hero-video" />
     <MESSAGE value="added hero-video.mp4 in HeroCarousel.astro" />
-    <option name="LAST_COMMIT_MESSAGE" value="added hero-video.mp4 in HeroCarousel.astro" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
