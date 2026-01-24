@@ -4,6 +4,7 @@ export const prerender = true;
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { products } from "../../../data-list/";
 import ContentWidth from "../../../components/ui/ContentWidth.astro";
+import ProductCard from "../../products/ProductCard.astro"; // ✅ reutiliza el card
 
 export async function getStaticPaths() {
   return products
@@ -22,6 +23,28 @@ if (!product) {
 const images = (product?.images?.length ? product.images : [product?.imagePath]).filter(Boolean);
 const mainSrc = images[0] ?? "";
 
+/** DESCUENTO (detalle) */
+const showConsultPrice = (product.price ?? 0) <= 0;
+const compare =
+  typeof product.compareAtPrice === "number" ? product.compareAtPrice : undefined;
+
+const hasDiscount =
+  !showConsultPrice &&
+  typeof compare === "number" &&
+  compare > 0 &&
+  compare > (product.price ?? 0);
+
+const discountPct = hasDiscount
+  ? Math.round(((compare - (product.price ?? 0)) / compare) * 100)
+  : 0;
+
+const lampTypeLabel = product.lampType === "original" ? "Original" : "Compatible";
+const lampTypeStyles =
+  product.lampType === "original"
+    ? "bg-white/10 text-foreground border-white/10"
+    : "bg-primary/15 text-primary border-primary/20";
+
+/** SIMILARES (solo 4) */
 const relatedProducts = (products || [])
   .filter((p) => p?.slug && p.slug !== product.slug)
   .map((p) => {
@@ -34,22 +57,27 @@ const relatedProducts = (products || [])
     const priceScore = priceA > 0 ? Math.max(0, 15 - Math.round(priceDiff / 50)) : 0;
 
     const score = sameBrand + inStock + priceScore;
-
     return { ...p, __score: score };
   })
   .sort((a, b) => (b.__score || 0) - (a.__score || 0))
-  .slice(0, 8);
-
+  .slice(0, 10); // ✅ solo 4
 
 const phone = "51930345270";
 const siteUrl = "https://venta-lampara-proyector.site";
 const productUrl = `${siteUrl}/products/${product.slug}`;
 
+const priceLine = showConsultPrice
+  ? "• Precio: Por consultar\n"
+  : hasDiscount
+    ? `• Precio: $ ${product.price}\n• Antes: $ ${compare}\n• Descuento: -${discountPct}%\n`
+    : `• Precio: $ ${product.price}\n`;
+
 const waText = encodeURIComponent(
   `Hola, quiero consultar por esta lámpara:\n\n` +
   `• ${product.title}\n` +
+  `• Tipo: ${lampTypeLabel}\n` +
   `• SKU: ${product.sku ?? product.code}\n` +
-  `• Precio referencial: S/ ${product.price}\n` +
+  priceLine +
   `• Link: ${productUrl}\n\n` +
   `¿Me confirmas compatibilidad y stock?`
 );
@@ -104,24 +132,26 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
             </div>
           </div>
 
+          {/* Tabs (quitamos "Garantía") */}
           <div class="mt-6 bg-surface/60 rounded-2xl border border-white/10">
             <div class="flex gap-6 px-5 pt-4 border-b border-white/10 text-sm">
               <button class="tab-btn text-foreground border-b-2 border-primary pb-3" data-tab="desc">Descripción</button>
               <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="compat">Compatibilidad</button>
-              <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="garantia">Garantía</button>
+              <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="soporte">Stock y soporte</button>
               <button class="tab-btn text-muted hover:text-foreground pb-3" data-tab="envio">Envío</button>
             </div>
 
             <div class="p-5">
               <div class="tab-panel" data-panel="desc">
                 <p class="leading-7 text-muted">
-                  Lámpara de repuesto compatible, ideal para recuperar el brillo y la nitidez de tu proyector.
+                  Lámpara de repuesto {lampTypeLabel.toLowerCase()}, ideal para recuperar el brillo y la nitidez de tu proyector.
                   Si nos indicas el modelo exacto, confirmamos compatibilidad antes de la compra.
                 </p>
+
                 <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted">
-                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Alta duración</li>
-                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Asesoría técnica</li>
-                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Producto probado</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Asesoría por modelo</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Envíos a todo el Perú</li>
+                  <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Producto de reemplazo</li>
                   <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Boleta / factura</li>
                 </ul>
               </div>
@@ -139,7 +169,7 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                       </span>
                     ))
                   ) : (
-                    <span class="text-sm text-muted">Consúltanos por WhatsApp con tu modelo exacto.</span>
+                    <span class="text-sm text-muted">Envíanos el modelo o foto de la etiqueta por WhatsApp para confirmarlo.</span>
                   )}
                 </div>
 
@@ -148,10 +178,27 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                 </p>
               </div>
 
-              <div class="tab-panel hidden" data-panel="garantia">
+              <div class="tab-panel hidden" data-panel="soporte">
                 <p class="leading-7 text-muted">
-                  {product?.warranty}. Recomendamos instalación con técnico o siguiendo guía para evitar daños por manipulación.
+                  Te confirmamos stock real y compatibilidad antes de cerrar la compra. Si no estás seguro del modelo,
+                  envíanos una foto de la etiqueta y te guiamos.
                 </p>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                    <div class="text-xs text-muted">Tipo</div>
+                    <div class="mt-1 text-sm text-foreground font-semibold">{lampTypeLabel}</div>
+                    <div class="mt-2 text-xs text-muted">Repuesto {lampTypeLabel.toLowerCase()}.</div>
+                  </div>
+
+                  <div class="rounded-xl border border-white/10 bg-background/40 p-4">
+                    <div class="text-xs text-muted">Stock</div>
+                    <div class="mt-1 text-sm text-foreground font-semibold">
+                      {product?.stock > 0 ? "Disponible" : "Agotado"}
+                    </div>
+                    <div class="mt-2 text-xs text-muted">Confirmación antes de pagar.</div>
+                  </div>
+                </div>
               </div>
 
               <div class="tab-panel hidden" data-panel="envio">
@@ -165,13 +212,19 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
 
         <aside class="lg:col-span-5">
           <div class="lg:sticky lg:top-6 bg-surface/60 rounded-2xl border border-white/10 p-5">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
               <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
                 {product?.brand}
               </span>
+
+              <span class={`text-xs px-3 py-1 rounded-full border ${lampTypeStyles}`}>
+                {lampTypeLabel}
+              </span>
+
               <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
                 SKU: {product?.sku ?? product?.code}
               </span>
+
               <span class={`ml-auto text-xs px-3 py-1 rounded-full border ${
                 product?.stock > 0 ? "bg-success/15 text-success border-success/20" : "bg-white/10 text-muted border-white/10"
               }`}>
@@ -183,15 +236,31 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
               {product?.title}
             </h1>
 
-            <div class="mt-3 flex items-end gap-3">
-              <div class="text-3xl font-extrabold text-foreground">
-                $ {product?.price}
-              </div>
-              <div class="text-sm text-muted pb-1">
-                Precio referencial
-              </div>
+            {/* Precio + descuento */}
+            <div class="mt-3">
+              {showConsultPrice ? (
+                <div class="text-2xl font-extrabold text-foreground">Precio por consultar</div>
+              ) : (
+                <div class="flex items-end gap-3 flex-wrap">
+                  <div class="text-3xl font-extrabold text-foreground">
+                    $ {product?.price}
+                  </div>
+
+                  {hasDiscount && (
+                    <>
+                      <div class="text-sm text-muted line-through pb-1">
+                        $ {compare}
+                      </div>
+                      <span class="text-[11px] px-2 py-1 rounded-full border border-primary/20 bg-primary/15 text-primary font-semibold">
+                        -{discountPct}%
+                      </span>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
 
+            {/* Cards: Compatibilidad / Soporte (sin garantía) */}
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div class="rounded-xl border border-white/10 bg-background/40 p-4">
                 <div class="text-xs text-muted">Compatibilidad</div>
@@ -200,9 +269,9 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
               </div>
 
               <div class="rounded-xl border border-white/10 bg-background/40 p-4">
-                <div class="text-xs text-muted">Garantía</div>
-                <div class="mt-1 text-sm text-foreground font-semibold">{product?.warranty}</div>
-                <div class="mt-2 text-xs text-muted">Soporte post-venta.</div>
+                <div class="text-xs text-muted">Soporte</div>
+                <div class="mt-1 text-sm text-foreground font-semibold">Asesoría por WhatsApp</div>
+                <div class="mt-2 text-xs text-muted">Te guiamos antes de comprar.</div>
               </div>
             </div>
 
@@ -219,7 +288,10 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                   brand: product.brand,
                   name: product.title,
                   price: product.price,
+                  compareAtPrice: product.compareAtPrice,
                   imagePath: product.imagePath,
+                  lampType: product.lampType,
+                  includesIgv: product.includesIgv,
                 })}
               >
                 <span>Agregar al carrito</span>
@@ -246,57 +318,210 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
               Productos similares
             </h2>
 
-            <a
-              href="/products"
-              class="text-sm text-muted hover:text-foreground transition"
-            >
+            <a href="/products" class="text-sm text-muted hover:text-foreground transition">
               Ver todos →
             </a>
           </div>
 
-          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {relatedProducts.map((p) => (
-              <a
-                href={`/products/${p.slug}`}
-                class="group rounded-2xl border border-white/10 bg-background/30 p-3 hover:bg-background/40 transition"
-              >
-                <div class="rounded-xl bg-white overflow-hidden">
-                  <img
-                    src={p.imagePath}
-                    alt={p.title}
-                    class="w-full h-28 sm:h-32 object-contain group-hover:scale-[1.02] transition"
-                    loading="lazy"
+          <div class="mt-4 relative">
+            {/* Flecha izquierda */}
+            <button
+              type="button"
+              data-rel-prev
+              aria-label="Anterior"
+              class="hidden sm:grid absolute left-2 top-1/2 -translate-y-1/2 z-10
+               w-11 h-11 place-items-center rounded-xl
+               border border-white/10 bg-background/60 backdrop-blur
+               hover:bg-background/80 transition"
+            >
+              {/* FontAwesome: chevron-left */}
+              <svg class="w-4 h-4 text-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor">
+                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+              </svg>
+            </button>
+
+            {/* Flecha derecha */}
+            <button
+              type="button"
+              data-rel-next
+              aria-label="Siguiente"
+              class="hidden sm:grid absolute right-2 top-1/2 -translate-y-1/2 z-10
+               w-11 h-11 place-items-center rounded-xl
+               border border-white/10 bg-background/60 backdrop-blur
+               hover:bg-background/80 transition"
+            >
+              {/* FontAwesome: chevron-right */}
+              <svg class="w-4 h-4 text-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </button>
+
+            {/* Carrusel */}
+            <div
+              data-rel-carousel
+              class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory
+               pb-2 px-1 -mx-1
+               [scrollbar-width:none] [-ms-overflow-style:none]"
+            >
+              {relatedProducts.map((p) => (
+                <div
+                  class="snap-start shrink-0
+                   w-[85%] sm:w-[50%] lg:w-[32%] xl:w-[24%]"
+                  data-rel-item
+                >
+                  <ProductCard
+                    product={{
+                      id: p.id,
+                      slug: p.slug,
+                      code: p.code,
+                      brand: p.brand,
+                      name: p.title,
+                      price: p.price,
+                      compareAtPrice: p.compareAtPrice,
+                      stock: p.stock,
+                      imagePath: p.imagePath,
+                      lampType: p.lampType,
+                      includesIgv: p.includesIgv,
+                    }}
                   />
                 </div>
+              ))}
+            </div>
 
-                <div class="mt-3">
-                  <p class="text-sm text-foreground font-bold leading-snug line-clamp-2">
-                    {p.code} <span class="text-muted font-normal">para</span> {p.brand}
-                  </p>
-
-                  <div class="mt-2 flex items-center justify-between gap-2">
-              <span class="text-foreground font-extrabold text-sm">
-                $ {p.price}
-              </span>
-
-                    <span
-                      class={`text-[11px] px-2 py-1 rounded-full border ${
-                        p.stock > 0
-                          ? "bg-success/15 text-success border-success/20"
-                          : "bg-white/10 text-muted border-white/10"
-                      }`}
-                    >
-                {p.stock > 0 ? "En stock" : "Agotado"}
-              </span>
-                  </div>
-                </div>
-              </a>
-            ))}
+            <style>{`
+        [data-rel-carousel]::-webkit-scrollbar { display: none; }
+      `}</style>
           </div>
         </div>
       )}
+
     </div>
   </ContentWidth>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-rel-carousel]");
+      if (!root) return;
+
+      const prevBtn = document.querySelector("[data-rel-prev]");
+      const nextBtn = document.querySelector("[data-rel-next]");
+      const items = root.querySelectorAll("[data-rel-item]");
+
+      if (!items.length) return;
+
+      // Ajustes
+      const AUTOPLAY_MS = 3200; // más grande = más lento
+      const PAUSE_AFTER_INTERACTION_MS = 4500;
+
+      let timer = null;
+      let resumeTimer = null;
+
+      function getStep() {
+        const first = items[0];
+        const rect = first.getBoundingClientRect();
+        // gap (Tailwind gap-4 = 16px) -> por si lo cambias, lo leemos “a mano”
+        const styles = window.getComputedStyle(root);
+        const gap = parseFloat(styles.columnGap || styles.gap || "16") || 16;
+        return rect.width + gap;
+      }
+
+      function atEnd() {
+        // “casi al final”
+        return root.scrollLeft + root.clientWidth >= root.scrollWidth - 5;
+      }
+
+      function scrollByStep(dir = 1) {
+        const step = getStep();
+        if (dir > 0 && atEnd()) {
+          root.scrollTo({ left: 0, behavior: "smooth" });
+          return;
+        }
+        root.scrollBy({ left: step * dir, behavior: "smooth" });
+      }
+
+      function stopAutoplay() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => scrollByStep(1), AUTOPLAY_MS);
+      }
+
+      function pauseAndResume() {
+        stopAutoplay();
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => startAutoplay(), PAUSE_AFTER_INTERACTION_MS);
+      }
+
+      // Flechas
+      prevBtn?.addEventListener("click", () => {
+        pauseAndResume();
+        scrollByStep(-1);
+      });
+
+      nextBtn?.addEventListener("click", () => {
+        pauseAndResume();
+        scrollByStep(1);
+      });
+
+      // Pausa al interactuar (mouse/touch)
+      root.addEventListener("pointerdown", pauseAndResume, { passive: true });
+      root.addEventListener("wheel", pauseAndResume, { passive: true });
+      root.addEventListener("touchstart", pauseAndResume, { passive: true });
+
+      // Pausa en hover (desktop)
+      root.addEventListener("mouseenter", stopAutoplay);
+      root.addEventListener("mouseleave", startAutoplay);
+
+      // Iniciar
+      startAutoplay();
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      function switchTab(targetTab) {
+        // Ocultar todos los panels
+        tabPanels.forEach(panel => {
+          panel.classList.add('hidden');
+        });
+
+        // Remover estilos activos de todos los botones
+        tabButtons.forEach(btn => {
+          btn.classList.remove('text-foreground', 'border-b-2', 'border-primary');
+          btn.classList.add('text-muted');
+        });
+
+        // Mostrar el panel seleccionado
+        const activePanel = document.querySelector(`[data-panel="${targetTab}"]`);
+        if (activePanel) {
+          activePanel.classList.remove('hidden');
+        }
+
+        // Activar el botón seleccionado
+        const activeButton = document.querySelector(`[data-tab="${targetTab}"]`);
+        if (activeButton) {
+          activeButton.classList.remove('text-muted');
+          activeButton.classList.add('text-foreground', 'border-b-2', 'border-primary');
+        }
+      }
+
+      // Event listeners para todos los botones
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.getAttribute('data-tab');
+          if (tab) {
+            switchTab(tab);
+          }
+        });
+      });
+    })();
+  </script>
 
   <script is:inline>
     (() => {
@@ -350,5 +575,4 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
       });
     })();
   </script>
-
 </BaseLayout>
