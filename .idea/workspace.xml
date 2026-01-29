@@ -4,32 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/5811119560-svv.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp32.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp34.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp40.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp41.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp42.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp46.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp48.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp53.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/elplp77.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.astro/data-store.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/data-store.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.astro/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/types.d.ts" afterDir="false" />
+    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="refactored design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data-list/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/about/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cart/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cart/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/contact/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/terms-and-conditions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/terms-and-conditions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/terms-and-conditions/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AgenciaServitec/lamparas-landing.git&quot;,
-    &quot;accountId&quot;: &quot;e345968d-7d21-452d-8db2-36d5945ef979&quot;
+    &quot;accountId&quot;: &quot;eed1d776-978f-4f57-88e8-2aa6e801d3a7&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -75,29 +54,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/Angel/WebstormProjects/lamparas-landing/public/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Angel/WebstormProjects/lamparas-landing/public/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Angel\\WebstormProjects\\lamparas-landing\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Angel\WebstormProjects\lamparas-landing\public\images" />
@@ -114,7 +93,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
       </set>
     </attachedChunks>
   </component>
@@ -134,6 +113,9 @@
       <workItem from="1769015404059" duration="24900000" />
       <workItem from="1769099305397" duration="9176000" />
       <workItem from="1769171329339" duration="2944000" />
+      <workItem from="1769439143008" duration="7443000" />
+      <workItem from="1769535910321" duration="1205000" />
+      <workItem from="1769720503908" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="updated banner image">
       <option name="closed" value="true" />
@@ -215,7 +197,31 @@
       <option name="project" value="LOCAL" />
       <updated>1769122067508</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove text &quot;servitec peru&quot;">
+      <option name="closed" value="true" />
+      <created>1769214102228</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1769214102228</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added nes products">
+      <option name="closed" value="true" />
+      <created>1769214194704</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1769214194704</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactored design">
+      <option name="closed" value="true" />
+      <created>1769214258415</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1769214258415</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +238,9 @@
     <MESSAGE value="updated content in contact page" />
     <MESSAGE value="added hero-video" />
     <MESSAGE value="added hero-video.mp4 in HeroCarousel.astro" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="remove text &quot;servitec peru&quot;" />
+    <MESSAGE value="added nes products" />
+    <MESSAGE value="refactored design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored design" />
   </component>
 </project>

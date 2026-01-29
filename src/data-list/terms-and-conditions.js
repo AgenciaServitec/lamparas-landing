@@ -3,7 +3,7 @@ export const termsAndConditions = [
         id: "intro",
         title: "Introducción",
         description:
-          "El presente Términos y Condiciones establece los términos en que SERVITEC PERU usa y protege la información proporcionada por sus usuarios al utilizar este sitio web. Estamos comprometidos con la seguridad de los datos. Cuando solicitamos información personal, lo hacemos asegurando que se empleará de acuerdo con este documento. Esta política puede actualizarse, por lo que recomendamos revisarla periódicamente.",
+          "La presenta Política de Privacidad establece los términos en que SERVITEC PERU usa y protege la información proporcionada por sus usuarios al utilizar este sitio web. Estamos comprometidos con la seguridad de los datos. Cuando solicitamos información personal, lo hacemos asegurando que se empleará de acuerdo con este documento. Esta política puede actualizarse, por lo que recomendamos revisarla periódicamente.",
     },
     {
         id: "info",
