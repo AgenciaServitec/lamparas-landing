@@ -5,13 +5,13 @@ type Props = {
   product: {
     id: string;
     slug: string;
-    title: string;
-    name: string;
-    brand: string;
-    price: number;
-    code: string;
-    compareAtPrice?: number;
     sku: string;
+    brand: string;
+    code: string;
+    title: string;
+    price: number;
+    name?: string;
+    compareAtPrice?: number;
     stock: number;
     imagePath: string;
     lampType?: "compatible" | "original";
@@ -21,7 +21,7 @@ type Props = {
 
 const { product } = Astro.props;
 
-// console.log(product);
+console.log(product.title);
 
 const typeLabel = product.lampType === "original" ? "Original" : "Compatible";
 const typeStyles =

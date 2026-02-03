@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard.astro";
 type Product = {
   id: string;
   slug: string;
+  title: string;
   name: string;
   brand: string;
   code: string;
@@ -23,9 +24,6 @@ type Props = {
 
 const { title, subtitle, products } = Astro.props;
 
-console.log("title: ", title);
-console.log("subtitle: ", subtitle);
-console.log("products: ", products);
 ---
 
 <section class="w-full mt-16">
@@ -52,6 +50,7 @@ console.log("products: ", products);
         slug: p.slug,
         code: p.name,
         brand: p.brand ?? "Genérico",
+        title: p.title,
         name: p.name,
         price: p.price ?? 0,
         compareAtPrice: p.compareAtPrice,
