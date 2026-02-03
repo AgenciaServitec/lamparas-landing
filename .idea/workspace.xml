@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="Updated descripcion product">
+    <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.astro/data-store.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/data-store.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.astro/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.astro/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-list/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-list/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/ProductGrid.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/ProductGrid.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/[slug]/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/products/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/products/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +121,8 @@
       <workItem from="1769439143008" duration="7443000" />
       <workItem from="1769535910321" duration="1205000" />
       <workItem from="1769720503908" duration="2130000" />
-      <workItem from="1769790857729" duration="1033000" />
+      <workItem from="1769790857729" duration="4187000" />
+      <workItem from="1770154359128" duration="2259000" />
     </task>
     <task id="LOCAL-00001" summary="updated banner image">
       <option name="closed" value="true" />
@@ -251,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769790993010</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="hided product brand">
+      <option name="closed" value="true" />
+      <created>1769805315978</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1769805315978</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +292,7 @@
     <MESSAGE value="removed brand section" />
     <MESSAGE value="updated tag in hero" />
     <MESSAGE value="Updated descripcion product" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated descripcion product" />
+    <MESSAGE value="hided product brand" />
+    <option name="LAST_COMMIT_MESSAGE" value="hided product brand" />
   </component>
 </project>

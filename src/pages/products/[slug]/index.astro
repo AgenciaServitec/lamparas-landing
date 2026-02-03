@@ -76,7 +76,7 @@ const waText = encodeURIComponent(
   `Hola, quiero consultar por esta lámpara:\n\n` +
   `• ${product.title}\n` +
   `• Tipo: ${lampTypeLabel}\n` +
-  `• SKU: ${product.sku ?? product.code}\n` +
+  `• SKU: ${product.sku}\n` +
   priceLine +
   `• Link: ${productUrl}\n\n` +
   `¿Me confirmas compatibilidad y stock?`
@@ -94,7 +94,7 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
           <li class="opacity-60">/</li>
           <li><a class="hover:text-foreground" href="/products">Productos</a></li>
           <li class="opacity-60">/</li>
-          <li class="text-foreground">{product?.code}</li>
+          <li class="text-foreground">{product?.sku}</li>
         </ol>
       </nav>
 
@@ -222,7 +222,7 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
               </span>
 
               <span class="text-xs px-3 py-1 rounded-full bg-background border border-white/10 text-muted">
-                SKU: {product?.sku ?? product?.code}
+                SKU: {product?.sku}
               </span>
 
               <span class={`ml-auto text-xs px-3 py-1 rounded-full border ${

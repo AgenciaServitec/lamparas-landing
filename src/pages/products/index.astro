@@ -90,15 +90,16 @@ const brands = Array.from(
             class="product-item"
             data-brand={p.brand}
             data-stock={p.stock > 0 ? "in" : "out"}
-            data-search={`${p.code} ${p.brand} ${p.title}`.toLowerCase()}
+            data-search={`${p.sku} ${p.brand} ${p.title}`.toLowerCase()}
           >
             <ProductCard
               product={{
                 id: p.id,
                 slug: p.slug,
-                code: p.code,
+                sku: p.sku,
                 brand: p.brand,
-                name: p.title,
+                code: p.sku,
+                title: p.title,
                 price: p.price,
                 compareAtPrice: p.compareAtPrice,
                 stock: p.stock,

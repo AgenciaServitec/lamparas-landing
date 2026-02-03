@@ -22,6 +22,10 @@ type Props = {
 };
 
 const { title, subtitle, products } = Astro.props;
+
+console.log("title: ", title);
+console.log("subtitle: ", subtitle);
+console.log("products: ", products);
 ---
 
 <section class="w-full mt-16">
@@ -46,7 +50,7 @@ const { title, subtitle, products } = Astro.props;
       <ProductCard product={{
         id: p.id,
         slug: p.slug,
-        code: p.code ?? p.name,
+        code: p.name,
         brand: p.brand ?? "Genérico",
         name: p.name,
         price: p.price ?? 0,
