@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="772f31cd-e644-44e7-b24a-8178f1f4f1cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cart/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cart/index.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/contact/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +117,8 @@
       <workItem from="1769790857729" duration="4187000" />
       <workItem from="1770154359128" duration="3869000" />
       <workItem from="1770158849098" duration="1435000" />
-      <workItem from="1770221483280" duration="255000" />
+      <workItem from="1770221483280" duration="951000" />
+      <workItem from="1770400699828" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="updated banner image">
       <option name="closed" value="true" />
@@ -310,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770159105751</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="removed placeholder in project model">
+      <option name="closed" value="true" />
+      <created>1770221784374</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1770221784374</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +350,7 @@
     <MESSAGE value="refactored attributes product" />
     <MESSAGE value="removed pnpm lock" />
     <MESSAGE value="updated pnpm lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pnpm lock" />
+    <MESSAGE value="removed placeholder in project model" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed placeholder in project model" />
   </component>
 </project>
