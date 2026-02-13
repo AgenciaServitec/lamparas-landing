@@ -15,9 +15,3 @@
   to = "https://servitecperu.com/:splat"
   status = 301
   force = true
-
-  [[redirects]]
-  from = "https://lamparas.servitecperu.com/*"
-  to = "https://servitecperu.com/:splat"
-  status = 301
-  force = true
