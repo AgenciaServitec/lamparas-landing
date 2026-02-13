@@ -6,7 +6,7 @@ type Product = {
   slug: string;
   code: string;
   brand: string;
-  name: string;
+  name?: string;
   price: number;
   stock: number;
   imagePath: string;

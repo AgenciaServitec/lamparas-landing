@@ -4,7 +4,7 @@ export const prerender = true;
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { products } from "../../../data-list/";
 import ContentWidth from "../../../components/ui/ContentWidth.astro";
-import ProductCard from "../../products/ProductCard.astro"; // ✅ reutiliza el card
+import ProductCard from "../../products/ProductCard.astro";
 
 export async function getStaticPaths() {
   return products
@@ -23,7 +23,6 @@ if (!product) {
 const images = (product?.images?.length ? product.images : [product?.imagePath]).filter(Boolean);
 const mainSrc = images[0] ?? "";
 
-/** DESCUENTO (detalle) */
 const showConsultPrice = (product.price ?? 0) <= 0;
 const compare =
   typeof product.compareAtPrice === "number" ? product.compareAtPrice : undefined;
@@ -44,7 +43,6 @@ const lampTypeStyles =
     ? "bg-white/10 text-foreground border-white/10"
     : "bg-primary/15 text-primary border-primary/20";
 
-/** SIMILARES (solo 4) */
 const relatedProducts = (products || [])
   .filter((p) => p?.slug && p.slug !== product.slug)
   .map((p) => {
@@ -60,7 +58,7 @@ const relatedProducts = (products || [])
     return { ...p, __score: score };
   })
   .sort((a, b) => (b.__score || 0) - (a.__score || 0))
-  .slice(0, 10); // ✅ solo 4
+  .slice(0, 10);
 
 const phone = "51930345270";
 const siteUrl = "https://venta-lampara-proyector.site";
@@ -132,7 +130,6 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
             </div>
           </div>
 
-          {/* Tabs (quitamos "Garantía") */}
           <div class="mt-6 bg-surface/60 rounded-2xl border border-white/10">
             <div class="flex gap-6 px-5 pt-4 border-b border-white/10 text-sm">
               <button class="tab-btn text-foreground border-b-2 border-primary pb-3" data-tab="desc">Descripción</button>
@@ -260,7 +257,6 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
               )}
             </div>
 
-            {/* Cards: Compatibilidad / Soporte (sin garantía) */}
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div class="rounded-xl border border-white/10 bg-background/40 p-4">
                 <div class="text-xs text-muted">Compatibilidad</div>
@@ -324,7 +320,6 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
           </div>
 
           <div class="mt-4 relative">
-            {/* Flecha izquierda */}
             <button
               type="button"
               data-rel-prev
@@ -334,13 +329,11 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                border border-white/10 bg-background/60 backdrop-blur
                hover:bg-background/80 transition"
             >
-              {/* FontAwesome: chevron-left */}
               <svg class="w-4 h-4 text-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor">
                 <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
               </svg>
             </button>
 
-            {/* Flecha derecha */}
             <button
               type="button"
               data-rel-next
@@ -350,13 +343,11 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                border border-white/10 bg-background/60 backdrop-blur
                hover:bg-background/80 transition"
             >
-              {/* FontAwesome: chevron-right */}
               <svg class="w-4 h-4 text-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor">
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </button>
 
-            {/* Carrusel */}
             <div
               data-rel-carousel
               class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory
@@ -373,9 +364,11 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
                     product={{
                       id: p.id,
                       slug: p.slug,
+                      sku: p.title,
                       code: p.code,
                       brand: p.brand,
                       name: p.title,
+                      title: p.title,
                       price: p.price,
                       compareAtPrice: p.compareAtPrice,
                       stock: p.stock,
@@ -455,7 +448,6 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
         resumeTimer = setTimeout(() => startAutoplay(), PAUSE_AFTER_INTERACTION_MS);
       }
 
-      // Flechas
       prevBtn?.addEventListener("click", () => {
         pauseAndResume();
         scrollByStep(-1);
@@ -466,16 +458,13 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
         scrollByStep(1);
       });
 
-      // Pausa al interactuar (mouse/touch)
       root.addEventListener("pointerdown", pauseAndResume, { passive: true });
       root.addEventListener("wheel", pauseAndResume, { passive: true });
       root.addEventListener("touchstart", pauseAndResume, { passive: true });
 
-      // Pausa en hover (desktop)
       root.addEventListener("mouseenter", stopAutoplay);
       root.addEventListener("mouseleave", startAutoplay);
 
-      // Iniciar
       startAutoplay();
     })();
   </script>
@@ -486,24 +475,20 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
       const tabPanels = document.querySelectorAll('.tab-panel');
 
       function switchTab(targetTab) {
-        // Ocultar todos los panels
         tabPanels.forEach(panel => {
           panel.classList.add('hidden');
         });
 
-        // Remover estilos activos de todos los botones
         tabButtons.forEach(btn => {
           btn.classList.remove('text-foreground', 'border-b-2', 'border-primary');
           btn.classList.add('text-muted');
         });
 
-        // Mostrar el panel seleccionado
         const activePanel = document.querySelector(`[data-panel="${targetTab}"]`);
         if (activePanel) {
           activePanel.classList.remove('hidden');
         }
 
-        // Activar el botón seleccionado
         const activeButton = document.querySelector(`[data-tab="${targetTab}"]`);
         if (activeButton) {
           activeButton.classList.remove('text-muted');
@@ -511,7 +496,6 @@ const whatsappLink = `https://wa.me/${phone}?text=${waText}`;
         }
       }
 
-      // Event listeners para todos los botones
       tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const tab = btn.getAttribute('data-tab');

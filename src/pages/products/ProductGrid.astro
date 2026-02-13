@@ -4,8 +4,9 @@ import ProductCard from "./ProductCard.astro";
 type Product = {
   id: string;
   slug: string;
+  sku: string;
   title: string;
-  name: string;
+  name?: string;
   brand: string;
   code: string;
   imagePath: string;
@@ -48,6 +49,7 @@ const { title, subtitle, products } = Astro.props;
       <ProductCard product={{
         id: p.id,
         slug: p.slug,
+        sku: p.name,
         code: p.name,
         brand: p.brand ?? "Genérico",
         title: p.title,

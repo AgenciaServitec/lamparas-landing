@@ -21,8 +21,6 @@ type Props = {
 
 const { product } = Astro.props;
 
-console.log(product.title);
-
 const typeLabel = product.lampType === "original" ? "Original" : "Compatible";
 const typeStyles =
   product.lampType === "original"
