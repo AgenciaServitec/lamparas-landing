@@ -1,11 +1,17 @@
 [[redirects]]
-  from = "https://reparacion-proyectores.com/*"
-  to = "https://servitecperu.com/:splat"
+  from = "https://lamparas.servitecperu.com/*"
+  to = "https://servitecperu.com/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://reparaciones-proyector.com/*"
-  to = "https://servitecperu.com/:splat"
+  from = "https://venta-lampara-proyector.site/*"
+  to = "https://servitecperu.com/"
+  status = 301
+  force = true
+
+  [[redirects]]
+  from = "https://venta-lamparas-proyectores.com/*"
+  to = "https://servitecperu.com/"
   status = 301
   force = true
